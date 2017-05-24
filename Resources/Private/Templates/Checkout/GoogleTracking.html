@@ -1,0 +1,112 @@
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+<f:layout name="Default" />
+
+This template displays a NEW form for the current domain object.
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+  Resources:
+    Private:
+      Templates:
+        New.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="main">
+	<f:comment>xxxx<f:count>{basketItems}</f:count>xyyy{sessionId}</f:comment>
+<f:if condition="{showAnalytics} == 1">
+   <script type="text/javascript">
+   <![CDATA[
+      ga('require', 'ecommerce', 'ecommerce.js'); 
+      ga('ecommerce:addTransaction', {
+         'id': ']]>{checkout.uid}<![CDATA[',
+         'affiliation': ']]>{partner}<![CDATA[',
+         'revenue': ']]><v:math.sum a="{revenue}" fail="1" b="{exchangeRate}" /><![CDATA[',
+         'shipping': ']]>{shipping}<![CDATA[',
+      });
+      ]]>
+   </script>
+
+   <script type="text/javascript">
+      <f:for each="{basketItems}" as="basketItem">
+         <![CDATA[   
+            ga('ecommerce:addItem', {
+         ]]>
+         
+         'id': '{checkout.uid}',
+         'name': '{basketItem.ticket.title}',
+         'sku': '{basketItem.uid}',
+         <f:if condition="{basketItem.ticket.nrOfTickets}==1">
+            <f:then>
+               'category': 'Clasic los',
+            </f:then>
+            <f:else>
+               'category': 'Combi los',
+            </f:else>
+         </f:if>         
+         'price': '<v:math.sum a="{basketItem.ticket.cost}" fail="1" b="{exchangeRate}" />',
+         'quantity': '{basketItem.amount}'
+         <![CDATA[
+            });
+         ]]>   
+      </f:for>
+      
+      <f:if condition="{checkout.pastClassPayment}">
+         <![CDATA[   
+            ga('ecommerce:addItem', {
+         ]]>
+         'id': '{checkout.uid}',
+         'name': 'Nachzahlungen',
+         'sku': '0000',
+         'category': 'Nachzahlungen',
+         'price': '<v:math.sum a="{checkout.pastClassPayment}" fail="1" b="{exchangeRate}" />',
+         'quantity': '1'
+         <![CDATA[
+            });
+         ]]>                  
+      </f:if>
+      
+      <f:if condition="{checkout.futureClassPayment}">
+         <![CDATA[   
+            ga('ecommerce:addItem', {
+         ]]>
+         'id': '{checkout.uid}',
+         'name': 'Vorauszahlungen',
+         'sku': '0001',
+         'category': 'Vorauszahlungen',
+         'price': '<v:math.sum a="{checkout.futureClassPayment}" fail="1" b="{exchangeRate}" />',
+         'quantity': '1'
+         <![CDATA[
+            });
+         ]]>                  
+      </f:if>      
+      
+      ga('ecommerce:send');
+   </script>
+	<script type="text/javascript">
+	(function(){
+		var itagVars = new Object();
+		itagVars["csClient"]    = "vilotto2";
+		itagVars["csItagId"] 	  = "045f07";
+
+		var custVars = new Object();
+		custVars["csTouchpoint"]    = "order-rt";
+
+		// Fill out this vars!
+		custVars["transactionId"]   = "{checkout.uid}";
+		custVars["orderValue"]      = "{checkout.grandTotalPayment}";
+
+		var ps = "";
+		for ( var k in itagVars ){
+		 ps += "&" + k + "=" + encodeURIComponent( itagVars[k] );
+		}
+
+		for ( var k in custVars ){
+		 ps += "&" + k + "=" + encodeURIComponent(custVars[k] );
+		}
+		document.write('<sc'+'ript async="async" src="http'+(document.location.protocol=='https:'?'s':'')+'://cdn.contentspread.net/cdn/toolbox/itag.dyn?'+ps+'"></sc'+'ript>');
+	})();
+	</script>
+</f:if>
+
+</f:section>

@@ -1,0 +1,92 @@
+<h2><f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:checkout.postage" />:*</h2>
+<div class="options">
+	<div class="item">
+		<f:form.radio property="delivery" value="1" />
+      <f:render partial="Checkout/Label" arguments="{propertyName:'delivery',propertyKey:'checkout.postage_option1',tag:'span'}" />
+	</div>
+	<div class="item last">
+		<f:form.radio property="delivery" value="2" />
+      <f:render partial="Checkout/Label" arguments="{propertyName:'delivery',propertyKey:'checkout.postage_option2',tag:'span'}" />
+	</div>
+</div>
+<h2><f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:checkout.payment" />:*</h2>
+<div class="options" id="payment_opts">
+   <f:if condition="{langId} == 0">
+	<div class="item">
+		<f:form.radio property="payment" value="1" />
+      <f:render partial="Checkout/Label" arguments="{propertyName:'payment',propertyKey:'checkout.payment_option1',tag:'span'}" />
+	</div>
+   </f:if>
+   
+	<div class="item">
+		<f:form.radio property="payment" value="2" />
+      <f:render partial="Checkout/Label" arguments="{propertyName:'payment',propertyKey:'checkout.payment_option2',tag:'span'}" />
+		<div id="payment2_container" class="hidden">
+			<div class="item">
+     		<f:render partial="Checkout/Label" arguments="{propertyName:'debitBankName',propertyKey:'debit_bank_name',required:1}" />
+     		<f:form.textfield property="debitBankName" />
+     	</div>
+     	<div class="item">
+     		<f:render partial="Checkout/Label" arguments="{propertyName:'debitSortCode',propertyKey:'debit_sort_code',required:1}" />
+     		<f:form.textfield property="debitSortCode" />
+     	</div>
+     	<div class="item">
+     		<f:render partial="Checkout/Label" arguments="{propertyName:'debitAccountNr',propertyKey:'debit_account_nr',required:1}" />
+     		<f:form.textfield property="debitAccountNr" />
+     	</div>
+     	<div class="item">
+     		<f:render partial="Checkout/Label" arguments="{propertyName:'debigAccountHolder',propertyKey:'debig_account_holder',required:1}" />
+     		<f:form.textfield property="debigAccountHolder" />
+     	</div>
+    </div>
+	</div>
+	<div class="item last">
+		<f:form.radio property="payment" value="3" />
+      <f:render partial="Checkout/Label" arguments="{propertyName:'payment',propertyKey:'checkout.payment_option3',tag:'span'}" />
+    <div id="payment3_container" class="hidden">
+    	<div class="item">
+	    	<f:render partial="Checkout/Label" arguments="{propertyName:'ccHolderName',propertyKey:'cc_holder_name',required:1}" />
+      	<f:form.textfield property="ccHolderName" />
+      </div>
+      <div class="item">
+      	<f:render partial="Checkout/Label" arguments="{propertyName:'ccType',propertyKey:'cc_type',required:1}" />
+         <f:if condition="{langId} == 1">
+            <f:then>
+      	      <f:form.select options="{0:'Please choose',1:'Mastercard',2:'Visa'}" property="ccType" />
+            </f:then>
+            <f:else>
+               <f:form.select options="{0:'Bitte auswählen',1:'Mastercard',2:'Visa'}" property="ccType" />
+            </f:else>
+         </f:if>
+      </div>
+      <div class="item">
+      	<f:render partial="Checkout/Label" arguments="{propertyName:'ccAccountNr',propertyKey:'cc_account_nr',required:1}" />
+      	<f:form.textfield property="ccAccountNr" />
+      </div>
+      <div class="item">
+      	<f:render partial="Checkout/Label" arguments="{propertyName:'ccExpireMonth',propertyKey:'cc_expire_month',required:1}" />
+      	<f:form.select options="{0:'MM',1:1,2:2,3:3,4:4,5:5,6:6,7:7,8:8,9:9,10:10,11:11,12:12}" property="ccExpireMonth" />
+      </div>
+      <div class="item">
+      	<f:render partial="Checkout/Label" arguments="{propertyName:'ccExpireYear',propertyKey:'cc_expire_year',required:1}" />
+      	<f:form.select options="{ccYearValid}" property="ccExpireYear" />
+      </div>
+      <div class="item">
+      	<f:render partial="Checkout/Label" arguments="{propertyName:'ccVerificationNr',propertyKey:'cc_verification_nr',required:1}" />
+      	<f:form.textfield property="ccVerificationNr" size="3" maxlength="3" /><br />
+         <small><f:translate key="tx_wxlottery_domain_model_checkout.cc_verification_nr_text" arguments="{0:'<br />'}" /></small>
+      </div>
+    </div>
+	</div>
+</div>
+<h2><f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:checkout.payment_method" />:*</h2>
+<div class="options">
+	<div class="item">
+		<f:form.radio property="buyAllClasses" value="1" />
+      <f:render partial="Checkout/Label" arguments="{propertyName:'buyAllClasses',propertyKey:'checkout.buyAllClesses_option1',tag:'span'}" />
+	</div>
+	<div class="item last">
+		<f:form.radio property="buyAllClasses" value="2" />
+      <f:render partial="Checkout/Label" arguments="{propertyName:'buyAllClasses',propertyKey:'checkout.buyAllClesses_option2',tag:'span'}" />
+	</div>
+</div>

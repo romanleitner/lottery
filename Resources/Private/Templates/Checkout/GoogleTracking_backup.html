@@ -1,0 +1,64 @@
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+<f:layout name="Default" />
+
+This template displays a NEW form for the current domain object.
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+  Resources:
+    Private:
+      Templates:
+        New.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="main">
+
+<f:if condition="{showAnalytics} == 1">
+   <script type="text/javascript">
+   <![CDATA[
+      ga('require', 'ecommerce', 'ecommerce.js'); 
+      ga('ecommerce:addTransaction', {
+         'id': ']]>{id}<![CDATA[',
+         'affiliation': ']]>{partner}<![CDATA[',
+         'revenue': ']]>{revenue}<![CDATA[',
+         'shipping': ']]>{shipping}<![CDATA[',
+      });
+      ]]>
+   </script>
+              
+   <script type="text/javascript">
+      <f:for each="{basketItems}" as="basketItem">
+         <![CDATA[   
+            ga('ecommerce:addItem', {
+         ]]>
+         
+         'id': '{id}',
+         'name': '{basketItem.ticket.title}',
+         'sku': '{basketItem.uid}',
+         <f:if condition="{basketItem.ticket.nrOfTickets}==1">
+            <f:then>
+               'category': 'Clasic los',
+            </f:then>
+            <f:else>
+               'category': 'Combi los',
+            </f:else>
+         </f:if>         
+         'price': '{basketItem.ticket.cost}',
+         <f:if condition="{jokerId} == {basketItem.ticket.uid}">
+            <f:then>
+               'quantity': '{basketItem.amount}'
+            </f:then>
+            <f:else>
+               'quantity': '<v:math.product a="{basketItem.amount}" fail="1" b="{nrOfPastClasses}" />'
+            </f:else>
+         </f:if>
+         <![CDATA[
+            });
+         ]]>   
+      </f:for>
+      ga('ecommerce:send');
+   </script>
+</f:if>
+
+</f:section>

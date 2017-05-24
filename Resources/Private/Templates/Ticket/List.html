@@ -1,0 +1,136 @@
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+{namespace w=WX\WxLottery\ViewHelpers}
+<f:layout name="Default" />
+
+This Template is responsible for creating a table of domain objects.
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+  Resources:
+    Private:
+      Templates:
+        List.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="main">
+
+<f:flashMessages />
+<div id="lottaryOverlay" class="overlay">
+	<f:render section="overlay" arguments="{langId:langId}" />
+</div>
+<f:form noCacheHash="true" actionUri="{v:uri.typolink( configuration:'{parameter: 23}')}" id="lottaryForm">
+<table class="play">
+	<thead>
+		<tr>
+			<th>
+				<f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:cart.col2" />
+			</th>
+			<th>
+				<f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:cart.col3" />
+			</th>
+			<th class="orange">
+				<f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:cart.col4" />
+			</th>
+			<th>
+				<f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:cart.col5" />
+			</th>
+			<th>
+				<f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:cart.col6" />
+			</th>
+			<th>
+				<f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:cart.col7" />	
+			</th>
+			<th></th>
+		</tr>
+	</thead>
+	<f:for each="{tickets}" as="ticket" iteration="i">
+		<tr {f:if(condition: i.isEven, then: 'class=odd')}>
+			<td>
+				<p class="ticket_name">{ticket.title}</p>
+				<p>{ticket.description}</p>
+            <f:if condition="{ticket.icon}">
+					<f:image src="uploads/tx_wxlottery/{ticket.icon}" alt="{ticket.title}" />
+				</f:if>
+			</td>
+			<td class="col">
+				<f:if condition="{ticket.moneyBack} == 1">
+					<f:link.page pageUid="22">
+						<img src="<f:cObject typoscriptObjectPath="lib.moneyBackGuaranteeIcon" />" alt="<f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:header.icon_euro_label" />" />
+					</f:link.page>
+				</f:if>
+			</td>
+			<td class="col orange">&euro; <f:format.number decimals="0" thousandsSeparator=".">{ticket.winPrice}</f:format.number>,-</td>
+			<td class="col chance">{ticket.chances} %</td>
+			<td class="col price">
+            <f:if condition="{langId} == 1">
+               <f:then>
+                  <f:format.currency currencySign="£" decimalSeparator="," thousandsSeparator="." prependCurrency="TRUE" separateCurrency="true" decimals="2">{ticket.cost}</f:format.currency>
+               </f:then>
+               <f:else>
+                  <f:translate key="tx_wxlottery_domain_model_ticket.currency" /> {ticket.cost},-
+               </f:else>
+            </f:if>
+         </td>
+			<td class="col">
+				<a class="less">-</a>
+				<f:form.textfield name="pieces[{ticket.uid}]" value="1" class="pieces-text" />
+				<f:form.select class="pieces" options="{
+					1:'1 Stück',
+					2:'2 Stück',
+					3:'3 Stück',
+					4:'4 Stück',
+					5:'5 Stück',
+					6:'6 Stück',
+					7:'7 Stück',
+					8:'8 Stück',
+					9:'9 Stück',
+					10:'10 Stück',
+					11:'11 Stück',
+					12:'12 Stück',
+					13:'13 Stück',
+					14:'14 Stück',
+					15:'15 Stück',
+					16:'16 Stück',
+					17:'17 Stück',
+					18:'18 Stück',
+					19:'19 Stück',
+					20:'20 Stück'
+				}" />
+				<a class="more">+</a>
+			</td>
+			<td class="col last">
+				<a href="#lottaryOverlay" class="{class} button" id="ticket-{ticket.uid}"><f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:cart.add" /></a>
+			</td>
+		</tr>
+	</f:for>
+</table>
+<f:form.hidden id="productId" name="productId" value="" />
+<f:form.hidden id="productAmount" name="productAmount" value="" />
+<f:form.hidden id="joker" name="joker" value="" />
+</f:form>
+<script>
+   var $chance = {};
+   <f:for each="{chances}" as="chance" key="ticketId">
+   		$chance['{ticketId}'] = {};
+      <f:for each="{chance}" as="singleChance" key="amount">
+         $chance['{ticketId}'][{amount}] = {singleChance};
+      </f:for>
+   </f:for>
+</script>
+</f:section>
+
+<f:section name="overlay">
+	<div class="msg"><f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:cart.overlay_msg" /></div>
+	<div class="inner">
+    <h1><f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:cart.overlay_heading" /></h1>
+    <h2><f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:cart.overlay_subheading" /> <f:translate key="tx_wxlottery_domain_model_ticket.currency" /> <span id="joker-price" data-language="{langId}">12</span></h2>
+		<f:cObject typoscriptObjectPath="lib.overlay" />
+		<!--<h3>
+			<f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:cart.overlay_howto" />
+		</h3>-->
+		<p>
+			<a href="#" class="button" id="closeYes"><f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:cart.add" />&nbsp;&raquo;</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="link" id="closeNo"><f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:cart.overlay_button_without_super" />&nbsp;&raquo;</a>
+		</p>
+	</div>
+</f:section>

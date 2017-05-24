@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2014-02-18T08:26:16Z" product-name="wx_lottery">
+		<header/>
+		<body>
+
+			<trans-unit id="tx_wxlottery_domain_model_ticket">
+				<source>Ticket</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_ticket.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_ticket.description">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_ticket.category">
+				<source>Category</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_ticket.icon">
+				<source>Icon</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_ticket.win_price">
+				<source>Win Price</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_ticket.cost">
+				<source>Cost</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_ticket.chances">
+				<source>Chances</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_ticket.money_back">
+				<source>Money Back</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_checkout.currency">
+				<source>Currency</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_checkout.currency.0">
+				<source>Euro</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_checkout.currency.1">
+				<source>GBP</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_ticket.nr_of_tickets">
+				<source>Nr Of Tickets [for price of joker calculation]</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_ticket.nr_of_tens">
+				<source>Nr Of 1/10s [for winning-chance calculation]</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_checkout.payment_info">
+				<source>Payment Info</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_checkout.comment">
+				<source>Comment</source>
+			</trans-unit>
+
+			<trans-unit id="tx_wxlottery_domain_model_checkout">
+				<source>Checkout</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.last_name">
+				<source>Last Name</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.first_name">
+				<source>First Name</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.gender">
+				<source>Gender</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.country">
+				<source>Country</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.zip">
+				<source>Zip</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.city">
+				<source>City</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.address">
+				<source>Address</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.email">
+				<source>Email</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.delivery">
+				<source>Delivery</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.payment">
+				<source>Payment</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_checkout.buy_all_classes">
+				<source>Buy All Classes</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_ticket.buy_all_classes.1">
+				<source>Ich möchte klassenweise zahlen.</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_ticket.buy_all_classes.2">
+				<source>Ich möchte alle 6 Klassen au einmal zahlen.</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_checkout.debit_bank_name">
+				<source>Debit Bank Name</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.debit_sort_code">
+				<source>Debit Sort Code</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.debit_account_nr">
+				<source>Debit Account Nr</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.debig_account_holder">
+				<source>Debig Account Holder</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.cc_holder_name">
+				<source>Cc Holder Name</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.cc_type">
+				<source>Cc Type</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.cc_account_nr">
+				<source>Cc Account Nr</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.cc_expire_month">
+				<source>Cc Expire Month</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.cc_expire_year">
+				<source>Cc Expire Year</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_checkout.year">
+				<source>Year</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.cc_verification_nr">
+				<source>Cc Verification Nr</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.session_id">
+				<source>Session Id</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.finished_step">
+				<source>Finished Step</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.d_gender">
+				<source>D Gender</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.d_first_name">
+				<source>D First Name</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.d_last_name">
+				<source>D Last Name</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.d_country">
+				<source>D Country</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.d_zip">
+				<source>D Zip</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.d_city">
+				<source>D City</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.d_address">
+				<source>D Address</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.d_email">
+				<source>D Email</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_checkout.order_sent_to">
+				<source>Order Sent To</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_ticket.partner.1">
+				<source>Hohebrücke</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_ticket.partner.2">
+				<source>Prokopp</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.basket_total_payment">
+				<source>Basket Total Payment</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_checkout.past_class_payment">
+				<source>Past Class Payment</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.future_class_payment">
+				<source>Future Class Payment</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_checkout.delivery_price">
+				<source>Delivery Price</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_checkout.grand_total_payment">
+				<source>Grand Total Payment</source>
+			</trans-unit>
+
+			<trans-unit id="tx_wxlottery_domain_model_basketitem">
+				<source>Basket Item</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_basketitem.session_id">
+				<source>Session Id</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_basketitem.user_agent">
+				<source>User Agent</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_basketitem.time">
+				<source>Time</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_basketitem.basket_total">
+				<source>Basket Total</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_basketitem.grand_total">
+				<source>Grand Total</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_basketitem.ip_address">
+				<source>Ip Address</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_basketitem.status">
+				<source>Status</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_basketitem.ticket">
+				<source>Ticket</source>
+			</trans-unit>
+
+			<trans-unit id="tx_wxlottery_domain_model_partnerlog">
+				<source>Partner Log</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_partnerlog.partner">
+				<source>Partner</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_partnerlog.basket_total">
+				<source>Basket Total</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_partnerlog.grand_total">
+				<source>Grand Total</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_partnerlog.session_id">
+				<source>Session Id</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_partnerlog.year">
+				<source>Year</source>
+			</trans-unit>
+
+         <trans-unit id="tx_wxlottery_domain_model_ticket.select.default">
+				<source>Please select</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_ticket.category.1">
+				<source>Am beliebtesten</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_ticket.category.2">
+				<source>Classic</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_ticket.category.3">
+					<source>Combi</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_ticket.category.4">
+				<source>Super 6er-Combi</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_ticket.category.5">
+					<source>Sonderspiele</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_ticket.status.1">
+					<source>In basket</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_ticket.status.2">
+					<source>In checkout</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_ticket.status.3">
+					<source>Ordered</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_ticket.step.1">
+					<source>Address</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_ticket.step.2">
+					<source>Payment</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_ticket.step.3">
+					<source>Overview</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_ticket.gender.1">
+					<source>Herr</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_ticket.gender.2">
+					<source>Frau</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_ticket.gender.3">
+					<source>Mrs.</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_ticket.country.1">
+					<source>Österreich</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_ticket.country.2">
+					<source>Deutschland</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_ticket.delivery.1">
+					<source>Per Email: 1,- EUR / GBP</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_ticket.delivery.2">
+					<source>Per Post: 2,- EUR / GBP pro Klasse</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_ticket.payment.1">
+					<source>Zahlschein</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_ticket.payment.2">
+					<source>Bankeinzung (bis aus Widerruf)</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_ticket.payment.3">
+					<source>Kreditkarte (bis auf WIlderruf)</source>
+			</trans-unit>
+
+			<trans-unit id="tx_wxlottery_domain_model_company">
+				<source>Companies</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_company.name">
+				<source>Company name</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_company.email_sender">
+				<source>Sender (email)</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_company.email_name">
+				<source>Sender (name)</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_company.email_admin">
+				<source>Admin email</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_company.weight">
+				<source>Weight</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_company.redirect_page">
+				<source>Redirect (page id)</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_company.info">
+				<source>Info</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_company.logo">
+				<source>Logo (place it to '/fileadmin/companylogos/')</source>
+			</trans-unit>
+
+		</body>
+	</file>
+</xliff>

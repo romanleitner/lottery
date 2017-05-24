@@ -1,0 +1,327 @@
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+<f:layout name="Default" />
+
+This template displays a NEW form for the current domain object.
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+  Resources:
+    Private:
+      Templates:
+        New.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="main">
+	
+<f:render partial="FormErrors" />
+
+<div class="checkout_container">
+	<f:if condition="{basketEmpty} == 1">
+		<f:then>
+			<h1>
+				<f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:heading.cart" />
+			</h1>
+			<p>
+				<f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:cart.empty" />.
+			</p>
+		</f:then>
+		<f:else>
+	    <div class="steps ym-clearfix">
+				<div class="step1 complete">
+					<f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:checkout.heading_step1" />
+				</div>
+				<div class="step2 complete">
+					<f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:checkout.heading_step2" />
+				</div>
+				<div class="step3 active">
+					<f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:checkout.heading_step3" />
+				</div>
+			</div>
+			<div class="checkout_overview">
+				<f:form action="confirmOrder" enctype="multipart/form-data"  name="checkout" object="{checkout}">
+					<f:render partial="Checkout/FormFieldsOverview" arguments="{checkout:newCheckout}" />
+					
+					<div class="ym-grid">
+						<div class="ym-g960-4 ym-gl">
+							<h6>
+								<f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:checkout.billing" />
+							</h6>
+							<address>
+								<f:if condition="{checkout.gender}==1"><f:translate key="tx_wxlottery_domain_model_checkout.gender_1" /></f:if>
+								<f:if condition="{checkout.gender}==2"><f:translate key="tx_wxlottery_domain_model_checkout.gender_2" /></f:if> {checkout.firstname} {checkout.lastname}<br />
+								{checkout.address}<br />
+								{checkout.zip} {checkout.city}<br />
+								<f:for each="{countries}" as="country" key="countryId">
+	         				<f:if condition="{countryId} == {checkout.country}">
+										{country}<br />
+									</f:if>
+								</f:for>
+								{checkout.email}
+							</address>
+							<f:link.page pageUid="30">
+								[&nbsp;<f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:checkout.edit_data" />&nbsp;&raquo;&nbsp;]
+							</f:link.page>
+						</div>
+						<div class="ym-g960-4 ym-gl">
+							<f:comment>
+							<!--
+							<h6>
+								<f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:checkout.shipping" />
+							</h6>
+							<address>
+								<f:if condition="{checkout.daddress}">
+									<f:then>
+										<f:if condition="{checkout.dgender}==1">Mann</f:if><f:if condition="{checkout.dgender}==2">Frau</f:if> {checkout.dfirstname} {checkout.dlastname}<br />
+										{checkout.daddress}<br />
+										{checkout.dzip} {checkout.dcity}<br />
+										<f:for each="{countries}" as="country" key="countryId">
+	         						<f:if condition="{countryId} == {checkout.dcountry}">
+												{country}<br />
+											</f:if>
+										</f:for>
+										{checkout.demail}
+									</f:then>
+									<f:else>
+										<f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:checkout.shipping_same" />
+									</f:else>
+								</f:if>
+							</address>
+							<f:link.page pageUid="30">
+								[&nbsp;<f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:checkout.edit_data" />&nbsp;&raquo;&nbsp;]
+							</f:link.page> 
+							-->
+							</f:comment>
+						</div>
+						<div class="ym-g960-4 ym-gl last">
+							<h6>
+								<f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:checkout.postage_type" />:
+							</h6>
+							<span>
+							<f:for each="{deliveries}" as="delivery" key="deliveryId">
+	         			  <f:if condition="{deliveryId} == {checkout.delivery}">
+									{delivery}&nbsp;<f:link.action pageUid="30" action="payment">[&nbsp;<f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:checkout.edit" />&nbsp;&raquo;&nbsp;]</f:link.action>
+								</f:if>
+							</f:for>
+							</span>
+							<h6>
+								<f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:checkout.payment_type" />:
+							</h6>
+							<span>
+							<f:for each="{payments}" as="payment" key="paymentId">
+	         			  <f:if condition="{paymentId} == {checkout.payment}">
+									{payment}&nbsp;<f:link.action pageUid="30" action="payment">[&nbsp;<f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:checkout.edit" />&nbsp;&raquo;&nbsp;]</f:link.action>
+								</f:if>
+							</f:for>
+							</span>
+							<h6>
+								<f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:checkout.payment_method" />:
+							</h6>
+							<span>
+                     <f:for each="{buyAllClasses}" as="buyClasse" key="classId">
+	         			  <f:if condition="{classId} == {checkout.buyAllClasses}">
+									{buyClasse}
+								</f:if>
+							</f:for>
+								&nbsp;<f:link.action pageUid="30" action="payment">[&nbsp;<f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:checkout.edit" />&nbsp;&raquo;&nbsp;]</f:link.action>
+							</span>
+						</div>
+					</div>
+               <h6>
+						<f:translate key="tx_wxlottery_domain_model_checkout.comment" />:
+					</h6>
+                  <f:form.textarea property="comment" />               
+					<table class="play">
+						<thead>
+							<tr>
+								<th class="name">
+									<f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:cart.col2" />
+								</th>
+								<th>
+									<f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:cart.col3" />
+								</th>
+								<th>
+									<f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:cart.col4" />
+								</th>
+								<th>
+									<f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:cart.col5" />
+								</th>
+								<th>
+									<f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:cart.col6" />
+								</th>
+								<th>
+									<f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:cart.col7" />
+								</th>
+								<th class="price">
+									<f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:cart.col8" />
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<f:for each="{basketItems}" as="basketItem" iteration="i">
+								<tr {f:if(condition: i.isEven, then: 'class=odd')}>
+									<td class="col name">
+										<p class="ticket_name">{basketItem.ticket.title}</p>
+									</td>
+									<td class="col guarantee">
+										<f:if condition="{basketItem.ticket.moneyBack} == 1">
+											<f:link.page pageUid="22">
+												<img src="<f:cObject typoscriptObjectPath="lib.moneyBackGuaranteeIcon" />" alt="<f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:header.icon_euro_label" />" />
+											</f:link.page>
+										</f:if>
+									</td>
+			       			<td class="col">
+										<f:if condition="{basketItem.ticket.winPrice}">
+           								<f:if condition="{jokerId} == {basketItem.ticket.uid}">
+         									<f:then>
+         										&euro;&nbsp;<f:format.number thousandsSeparator="." decimals="0"><v:math.product a="{basketItem.ticket.winPrice}" fail="1" b="{basketItem.amount}" /></f:format.number>,-
+         									</f:then>
+         									<f:else>
+                                       &euro;&nbsp;<f:format.number thousandsSeparator="." decimals="0">{basketItem.ticket.winPrice}</f:format.number>,-
+         									</f:else>
+      								   </f:if>
+										</f:if>
+									</td>
+			         		<td class="col chance">
+										<f:if condition="{basketItem.ticket.chances}">
+											
+										</f:if>
+									</td>
+									<td class="col price2">
+										<f:if condition="{jokerId} != {basketItem.ticket.uid}">
+											<f:then>
+                                    <f:if condition="{langId} == 1">
+                                       <f:then>
+                                          <f:format.currency currencySign="£" decimalSeparator="," thousandsSeparator="." prependCurrency="TRUE" separateCurrency="true" decimals="2">{basketItem.ticket.cost}</f:format.currency>
+                                       </f:then>
+                                       <f:else>
+                                          <f:format.currency currencySign="€" decimalSeparator="," thousandsSeparator="." prependCurrency="TRUE" separateCurrency="true" decimals="0">{basketItem.ticket.cost}</f:format.currency>,-
+                                       </f:else>
+                                    </f:if>
+											</f:then>
+										</f:if>
+									</td>
+			       			<td class="col">
+                           <f:if condition="{jokerId} != {basketItem.ticket.uid}">
+										{basketItem.amount}
+									</f:if>
+					 				</td>
+			       			<td class="col price">
+                              <f:if condition="{langId} == 1">
+                                 <f:then>
+                                    <f:format.currency currencySign="£" decimalSeparator="," thousandsSeparator="." prependCurrency="TRUE" separateCurrency="true" decimals="2"><v:math.product a="{basketItem.ticket.cost}" fail="1" b="{basketItem.amount}" /></f:format.currency>
+                                 </f:then>
+                                 <f:else>
+                                    <f:format.currency currencySign="€" decimalSeparator="," thousandsSeparator="." prependCurrency="TRUE" separateCurrency="true" decimals="0"><v:math.product a="{basketItem.ticket.cost}" fail="1" b="{basketItem.amount}" /></f:format.currency>,-
+                                 </f:else>
+                              </f:if>                              
+									</td>
+								</tr>
+							</f:for>
+							<tr class="last">
+								<td colspan="2" class="col gotocart">
+									<f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:checkout.forgot" />&nbsp;&nbsp;
+									<f:link.page pageUid="23">
+										<f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:checkout.edit_cart" />
+									</f:link.page>
+								</td>
+								<td colspan="4" class="col last">
+									<f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:cart.col8" /><br />
+									<f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:checkout.postage_cost_overview_{checkout.delivery}" /><br />
+									
+                           <f:if condition="{checkout.pastClassPayment} != 0">
+                              <f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:checkout.pastClassPayment" /><br />
+                           </f:if>
+                           
+                           <f:if condition="{checkout.futureClassPayment} != 0">
+                              <f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:checkout.futureClassPayment" /><br />
+                           </f:if>
+									<span class="total">
+										<f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:cart.total" />
+									</span>
+								</td>
+								<td class="col last">
+                           <f:if condition="{langId} == 1">
+                              <f:then>
+                                 <f:format.currency currencySign="£" decimalSeparator="," thousandsSeparator="." prependCurrency="TRUE" separateCurrency="true" decimals="2">{checkout.basketTotalPayment}</f:format.currency><br />
+                              </f:then>
+                              <f:else>
+                                 <f:format.currency currencySign="€" decimalSeparator="," thousandsSeparator="." prependCurrency="TRUE" separateCurrency="true" decimals="0">{checkout.basketTotalPayment}</f:format.currency>,-<br />
+                              </f:else>
+                           </f:if>                        
+                           
+                           <f:if condition="{langId} == 1">
+                              <f:then>
+                                 <f:format.currency currencySign="£" decimalSeparator="," thousandsSeparator="." prependCurrency="TRUE" separateCurrency="true" decimals="2">{checkout.deliveryPrice}</f:format.currency><br />
+                              </f:then>
+                              <f:else>
+                                 <f:format.currency currencySign="€" decimalSeparator="," thousandsSeparator="." prependCurrency="TRUE" separateCurrency="true" decimals="0">{checkout.deliveryPrice}</f:format.currency>,-<br />
+                              </f:else>
+                           </f:if> 
+									
+                           <f:if condition="{checkout.pastClassPayment} != 0">
+                              <f:if condition="{langId} == 1">
+                                 <f:then>
+                                    <f:format.currency currencySign="£" decimalSeparator="," thousandsSeparator="." prependCurrency="TRUE" separateCurrency="true" decimals="2">{checkout.pastClassPayment}</f:format.currency><br />
+                                 </f:then>
+                                 <f:else>
+                                    <f:format.currency currencySign="€" decimalSeparator="," thousandsSeparator="." prependCurrency="TRUE" separateCurrency="true" decimals="0">{checkout.pastClassPayment}</f:format.currency>,-<br />
+                                 </f:else>
+                              </f:if>                               
+                           </f:if>
+                           
+                           <f:if condition="{checkout.futureClassPayment} != 0">
+                              <f:if condition="{langId} == 1">
+                                 <f:then>
+                                    <f:format.currency currencySign="£" decimalSeparator="," thousandsSeparator="." prependCurrency="TRUE" separateCurrency="true" decimals="2">{checkout.futureClassPayment}</f:format.currency><br />
+                                 </f:then>
+                                 <f:else>
+                                    <f:format.currency currencySign="€" decimalSeparator="," thousandsSeparator="." prependCurrency="TRUE" separateCurrency="true" decimals="0">{checkout.futureClassPayment}</f:format.currency>,-<br />
+                                 </f:else>
+                              </f:if> 
+                           </f:if>
+									<span class="total" data-price="{checkout.grandTotalPayment}" data-basket-total="{checkout.basketTotalPayment}" data-past-class="{checkout.pastClassPayment}" data-future-class="{checkout.futureClassPayment}">
+                              <f:if condition="{langId} == 1">
+                                 <f:then>
+                                    <f:format.currency currencySign="£" decimalSeparator="," thousandsSeparator="." prependCurrency="TRUE" separateCurrency="true" decimals="2">{checkout.grandTotalPayment}</f:format.currency><br />
+                                 </f:then>
+                                 <f:else>
+									 <f:format.currency currencySign="€" decimalSeparator="," thousandsSeparator="." prependCurrency="TRUE" separateCurrency="true" decimals="0">{checkout.grandTotalPayment}</f:format.currency>,-<br />
+                                 </f:else>
+                              </f:if>                            
+									</span>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+          <f:form.hidden name="orderConfirmed" value="1" />
+					<div class="submit">
+            <f:form.submit name="submit" id="confirmOrderSubmitForm" value="{f:translate(id: 'LLL:fileadmin/klassenlos.at/language/locallang.xml:checkout.confirmation_submit')}" />
+            <f:comment>
+  						<f:link.action action="confirmOrder" arguments="{orderConfirmed:1}">
+  							<f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:checkout.confirmation_submit" />
+  						</f:link.action>
+            </f:comment>
+					</div>
+				</f:form>
+			</div>
+		</f:else>
+	</f:if>
+</div>
+<div class="checkout_widget">
+	<div class="guarantee ym-clearfix">
+		<f:link.page pageUid="22">
+			<f:image src="fileadmin/klassenlos.at/images/common/moneyguarantee_small_icon.png" alt="" />
+			<p>
+				<f:format.nl2br>
+					<f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:header.icon_euro_text" />
+				</f:format.nl2br>
+			</p>
+		</f:link.page>
+	</div>
+	<div class="icons">
+		<f:image src="fileadmin/klassenlos.at/images/common/checkout_widget_icon.png" alt="" />
+		<f:image src="fileadmin/klassenlos.at/images/common/ssl-icon-widget.png" alt="" />
+	</div>
+</div>
+</f:section>

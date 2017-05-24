@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2014-02-27T13:58:36Z" product-name="wx_lottery">
+		<header/>
+		<body>
+
+			<trans-unit id="partner.description">
+				<source>Partner</source>
+			</trans-unit>
+			<trans-unit id="amount.description">
+				<source>Amount</source>
+			</trans-unit>
+			<trans-unit id="session_id.description">
+				<source>Session ID</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

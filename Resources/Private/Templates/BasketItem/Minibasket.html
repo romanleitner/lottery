@@ -1,0 +1,72 @@
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+<f:layout name="Default" />
+
+This Template is responsible for creating a table of domain objects.
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+  Resources:
+    Private:
+      Templates:
+        List.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="main">
+
+<f:flashMessages />
+
+<f:if condition="{basketItems -> f:count()} > 0">
+	<f:then>
+		<table>
+			<caption>
+				<f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:miniBasket.heading" />
+				</caption>
+			<tbody>
+				<f:for each="{basketItems}" as="basketItem">
+					<tr>
+						<td><f:link.action action="list" arguments="{delete:basketItem.uid}" class="ajax-delete-basketitem"><img src="fileadmin/klassenlos.at/images/common/delete_icon.png" alt=""></f:link.action></td>
+						<td class="pieces">
+                     <f:if condition="{jokerId} != {basketItem.ticket.uid}">
+                        {basketItem.amount}x
+                     </f:if>
+                  </td>
+						<td>
+							{basketItem.ticket.title}<br>
+							<span>{basketItem.ticket.description}</span>
+						</td>
+						<td class="price">
+                     <f:if condition="{langId} == 1">
+                        <f:then>
+                           <f:format.currency currencySign="£" decimalSeparator="," thousandsSeparator="." prependCurrency="TRUE" separateCurrency="false" decimals="2"><v:math.product a="{basketItem.amount}" b="{basketItem.ticket.cost}" /></f:format.currency>
+                        </f:then>
+                        <f:else>
+                           <f:format.currency currencySign="€" decimalSeparator="," thousandsSeparator="." prependCurrency="TRUE" separateCurrency="true" decimals="0"><v:math.product a="{basketItem.amount}" b="{basketItem.ticket.cost}" /></f:format.currency>,-
+                        </f:else>
+                     </f:if>
+                  </td>
+					</tr>
+				</f:for>
+				<tbody class="totals">
+					<tr>
+						<td colspan="3"><f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:miniBasket.chance" />:</td>
+						<td class="price">{highestChance}&nbsp;%</td>
+					</tr>
+				</tbody>
+			</tbody>
+		</table>
+      <f:link.page  class="button tocart" pageUid="23">
+			<f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:header.cart" />
+		</f:link.page>
+		<f:link.page  class="button" pageUid="30">
+			<f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:header.checkout" />&nbsp;&raquo;
+		</f:link.page>
+	</f:then>
+	<f:else>
+		<p>
+			<f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:miniBasket.empty" />
+		</p>
+	</f:else>
+</f:if>
+
+</f:section>

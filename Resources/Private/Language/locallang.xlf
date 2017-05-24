@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2014-02-18T08:26:16Z" product-name="wx_lottery">
+		<header/>
+		<body>
+
+			<trans-unit id="tx_wxlottery_domain_model_ticket">
+				<source>Ticket</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_ticket.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_ticket.description">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_ticket.category">
+				<source>Category</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_ticket.icon">
+				<source>Icon</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_ticket.win_price">
+				<source>Winning price</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_ticket.cost">
+				<source>Ticket price</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_ticket.chances">
+				<source>Chances to win [%]</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_ticket.money_back">
+				<source>Money-back guarantee</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_ticket.currency">
+				<source>£</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_ticket.nr_of_tickets">
+				<source>Nr. of tickets included</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_checkout.payment_info">
+				<source>Encrypted payment info</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_checkout.comment">
+				<source>Comment</source>
+			</trans-unit>
+			
+			<trans-unit id="tx_wxlottery_domain_model_checkout">
+				<source>Checkout</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_checkout.encryption_file_missing">
+				<source>Encryption file is missing, please contact admin!</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_checkout.select_default">
+				<source>Please select</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.last_name">
+				<source>Surname</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.first_name">
+				<source>First name,</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.gender">
+				<source>Title</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_checkout.gender_1">
+				<source>Mr.</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_checkout.gender_2">
+				<source>Ms.</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_checkout.gender_3">
+				<source>Mrs.</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.country">
+				<source>Country</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_checkout.country_1">
+				<source>Austria</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_checkout.country_2">
+				<source>Germany</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.zip">
+				<source>Postcode,</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.city">
+				<source>City</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.address">
+				<source>Address</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.email">
+				<source>Email address</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.delivery">
+				<source>Delivery type</source>
+			</trans-unit>
+      <trans-unit id="tx_wxlottery_domain_model_checkout.checkout.postage_option1">
+				<source>£ 1,- By email (per class)</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_checkout.checkout.postage_option2">
+				<source>£ 2,- By post (per class)</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.payment">
+				<source>Payment option</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_checkout.checkout.payment_option1">
+				<source>Payment slip</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_checkout.checkout.payment_option2">
+				<source>Bank transfer (subject to cancellation)</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_checkout.checkout.payment_option3">
+				<source>Credit card (subject to cancellation)</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_checkout.buy_all_classes">
+				<source>Buy all classes</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_checkout.checkout.buyAllClesses_option1">
+				<source>I wish to pay for each class individually.</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_checkout.checkout.buyAllClesses_option2">
+				<source>I wish to pay for all 6 classes at once.</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_checkout.checkout.subtotal">
+				<source>Sub-total</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_checkout.checkout.total">
+				<source>Total amount</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_ticket.buy_all_classes.1">
+				<source>I wish to pay for each draw individually.</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_ticket.buy_all_classes.2">
+				<source>I wish to pay for all 6 draws at once.</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_checkout.debit_bank_name">
+				<source>Bank name</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.debit_sort_code">
+				<source>BIC</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.debit_account_nr">
+				<source>IBAN</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.debig_account_holder">
+				<source>Account holder</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.cc_holder_name">
+				<source>Holder name</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.cc_type">
+				<source>Card type</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.cc_account_nr">
+				<source>Account Nr.</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.cc_expire_month">
+				<source>Expire month</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.cc_expire_year">
+				<source>Expire year</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.cc_verification_nr">
+				<source>Verification Nr.</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_checkout.cc_verification_nr_text">
+				<source>Last 3-digits on the back of your card</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.session_id">
+				<source>Session ID</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.finished_step">
+				<source>Finished spet</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.d_as_billing">
+				<source>Same as Billing Address</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.d_gender">
+				<source>Gender - delivery</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.d_first_name">
+				<source>First name - delivery</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.d_last_name">
+				<source>Last name - delivery</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.d_country">
+				<source>Country - delivery</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.d_zip">
+				<source>Zip - delivery</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.d_city">
+				<source>City - delivery</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.d_address">
+				<source>Address - delivery</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.d_email">
+				<source>Email - delivery</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_checkout.order_sent_to">
+				<source>Order sent to partner:</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_ticket.partner.1">
+				<source>Hohebrücke</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_ticket.partner.2">
+				<source>Prokopp</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.extra_payment">
+				<source>Price for other classes</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_checkout.pastClassPayment">
+            <source>Back payment for previous draws</source>
+         </trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_checkout.futureClassPayment">
+            <source>Payment for future draws</source>
+         </trans-unit>
+			
+			<trans-unit id="tx_wxlottery_domain_model_basketitem">
+				<source>BasketItem</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_basketitem.session_id">
+				<source>Session ID</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_basketitem.user_agent">
+				<source>HTTP user agent</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_basketitem.time">
+				<source>Time</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_basketitem.amount">
+				<source>Amount</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_basketitem.ip_address">
+				<source>IP address</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_basketitem.status">
+				<source>Status</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_basketitem.ticket">
+				<source>ticket</source>
+			</trans-unit>
+			
+			<trans-unit id="tx_wxlottery_domain_model_partnerlog">
+				<source>PartnerLog</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_partnerlog.partner">
+				<source>Partner</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_partnerlog.amount">
+				<source>Amount</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_partnerlog.session_id">
+				<source>Session ID</source>
+			</trans-unit>
+
+         <trans-unit id="tx_wxlottery_domain_model_basketitem.validation_error_newCheckout.error">
+				<source>Please fill out all fields marked with *.</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_basketitem.validation_error_newCheckout.lastName">
+				<source>Last name is required!</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_basketitem.validation_error_newCheckout.firstName">
+				<source>First name is required!</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_basketitem.validation_error_newCheckout.zip">
+				<source>ZIP is required!</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_basketitem.validation_error_newCheckout.city">
+				<source>City is required!</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_basketitem.validation_error_newCheckout.address">
+				<source>Address is required!</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_basketitem.validation_error_newCheckout.email">
+				<source>Email is required!</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_basketitem.validation_error_newCheckout.country">
+				<source>Country is required!</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_basketitem.empty_basket">
+				<source>Basket is empty, please put a ticket into basket first!</source>
+			</trans-unit>
+      
+      <trans-unit id="email.loses">
+      	<source>Tickets</source>
+      </trans-unit>
+      <trans-unit id="email.price_per_class">
+      	<source>Price per draw</source>
+      </trans-unit>
+      <trans-unit id="email.count">
+      	<source>Number</source>
+      </trans-unit>
+      <trans-unit id="email.comments_heading">
+      	<source>Your comments</source>
+      </trans-unit>
+      <trans-unit id="email.subject">
+         <source>Order</source>
+      </trans-unit>
+      <trans-unit id="email.logo_alt">
+      	<source>Association of the Branches for the Class-Lottery</source>
+      </trans-unit>
+      <trans-unit id="email.thankyou_alt">
+      	<source>Thank you very much!</source>
+      </trans-unit>
+      <trans-unit id="email.thank_you_text_man">
+				<source>Dear Mr.</source>
+			</trans-unit>
+			<trans-unit id="email.thank_you_text_woman">
+				<source>Dear Ms.</source>
+			</trans-unit>
+			<trans-unit id="email.intro_text">
+				<source>now you have placed your order to take part in the draw, you are a step closer to making your dreams become reality – congratulations! Please find your order details below.</source>
+			</trans-unit>
+			<trans-unit id="email.order_no">
+				<source>Your order number</source>
+			</trans-unit>
+			<trans-unit id="email.order_date">
+				<source>Date of order</source>
+			</trans-unit>
+			<trans-unit id="email.billing_address">
+				<source>Your billing address</source>
+			</trans-unit>
+			<trans-unit id="email.shipping_address">
+				<source>Your delivery address</source>
+			</trans-unit>
+			<trans-unit id="email.payment">
+				<source>Payment option</source>
+			</trans-unit>
+			<trans-unit id="email.shipping">
+				<source>Delivery option</source>
+			</trans-unit>
+			<trans-unit id="email.important_info_text">
+				<source>Please note that the ticket price for previously held draws must be paid for in accordance with rule 5.4 in the Class-Lottery’s rules of game.</source>
+			</trans-unit>
+			<trans-unit id="email.conditions_text">
+				<source>By placing your order, you have agreed to the rules of game laid out by the Austrian Class-Lottery.</source>
+			</trans-unit>
+			<trans-unit id="email.conditions_link_text">
+				<source>You can revisit them here.</source>
+			</trans-unit>
+			<trans-unit id="email.partner_alt">
+				<source>Partner of the Austrian Lottery</source>
+			</trans-unit>
+			<trans-unit id="email.responsibility_alt">
+				<source>Games with responsibility</source>
+			</trans-unit>
+			<trans-unit id="email.partner_header">
+				<source>Your personal branch:</source>
+			</trans-unit>
+			<trans-unit id="email.partner_hohebruecke_address">
+				<source>%1$sHohe Brücke WIEN%2$s%3$sWipplingerstraße 21, A-1013 Vienna%3$s%1$sTel.%2$s+43 1 533 26 56%3$s%1$sE-Mail%2$s info@hohebruecke.at</source>
+			</trans-unit>
+			<trans-unit id="email.partner_prokopp_address">
+				<source>%1$sProkopp%2$s%3$sMariahilfer Straße 29, A-1061 Vienna%3$s%1$sTel.%2$s+43 1 587 76 63%3$s%1$sE-Mail%2$s prokopp@prokopp.at</source>
+			</trans-unit>
+			<trans-unit id="email.footer_link1_text">
+				<source>General rules of play</source>
+			</trans-unit>
+			<trans-unit id="email.footer_link2_text">
+				<source>GTCs</source>
+			</trans-unit>
+			<trans-unit id="email.footer_link3_text">
+				<source>Data protection</source>
+			</trans-unit>
+			<trans-unit id="email.footer_link4_text">
+				<source>Editorial</source>
+			</trans-unit>
+         
+			<trans-unit id="cart.heading">
+				<source>Lose in Ihrem Warenkorb</source>
+			</trans-unit>
+			<trans-unit id="cart.col2">
+				<source>Lose</source>
+			</trans-unit>
+			<trans-unit id="cart.col3">
+				<source>Geld-zurück Garantie</source>
+			</trans-unit>
+			<trans-unit id="cart.col4">
+				<source>Höchstgewinn</source>
+			</trans-unit>
+			<trans-unit id="cart.col5">
+				<source>Trefferchance</source>
+			</trans-unit>
+			<trans-unit id="cart.col6">
+				<source>Preis pro Klasse</source>
+			</trans-unit>
+			<trans-unit id="cart.col7">
+				<source>Anzahl</source>
+			</trans-unit>
+			<trans-unit id="cart.col8">
+				<source>Zwischensumme</source>
+			</trans-unit>
+			<trans-unit id="cart.add">
+				<source>In den Warenkorb</source>
+			</trans-unit>
+			<trans-unit id="cart.delete">
+				<source>löschen</source>
+			</trans-unit>
+			<trans-unit id="cart.empty">
+				<source>Der Warenkorb ist Leer</source>
+			</trans-unit>
+			<trans-unit id="cart.total">
+				<source>Gesamtsumme</source>
+			</trans-unit>
+			<trans-unit id="cart.continue_shopping">
+				<source>Weiter einkaufen</source>
+			</trans-unit>
+			<trans-unit id="cart.recalculate">
+				<source>Warenkorb aktualisieren</source>
+			</trans-unit>
+			<trans-unit id="cart.checkout">
+				<source>Zur Kassa gehen</source>
+			</trans-unit>
+			<trans-unit id="cart.cookies">
+				<source>Bitte aktivieren Sie Cookies in Ihrem Browser!</source>
+			</trans-unit>
+      <trans-unit id="header.logo">
+         <source>Logo - Verband der österreichischen Klassenlotterien</source>
+      </trans-unit>
+      <trans-unit id="header.icon_euro_label">
+         <source></source>
+      </trans-unit>
+      <trans-unit id="header.icon_euro_text">
+         <source>Unsere 100% Geld
+        Zurück Garantie</source>
+      </trans-unit>
+      <trans-unit id="header.icon_phone_label">
+         <source></source>
+      </trans-unit>
+      <trans-unit id="header.icon_phone_text">
+         <source>Unsere Hotline</source>
+      </trans-unit>
+      <trans-unit id="header.icon_eurolabel_label">
+         <source></source>
+      </trans-unit>
+      <trans-unit id="header.cart">
+         <source>Warenkorb</source>
+      </trans-unit>
+      <trans-unit id="header.checkout">
+         <source>Zur Kassa</source>
+      </trans-unit>
+      <trans-unit id="header.cart_loading">
+         <source>Der Warenkorb wird geladen</source>
+      </trans-unit>
+      
+      <trans-unit id="miniBasket.heading">
+         <source>Meine Lose</source>
+      </trans-unit>
+      <trans-unit id="miniBasket.chance">
+         <source>Ihre Trefferchancen</source>
+      </trans-unit>
+      <trans-unit id="miniBasket.total">
+         <source>Zwischensumme</source>
+      </trans-unit>
+      <trans-unit id="miniBasket.empty">
+         <source>Warenkorb ist Leer!</source>
+      </trans-unit>     
+			
+		</body>
+	</file>
+</xliff>

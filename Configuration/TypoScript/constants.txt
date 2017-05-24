@@ -1,0 +1,32 @@
+plugin.tx_wxlottery {
+	view {
+		# cat=plugin.tx_wxlottery/file; type=string; label=Path to template root (FE)
+		templateRootPath = EXT:wx_lottery/Resources/Private/Templates/
+		# cat=plugin.tx_wxlottery/file; type=string; label=Path to template partials (FE)
+		partialRootPath = EXT:wx_lottery/Resources/Private/Partials/
+		# cat=plugin.tx_wxlottery/file; type=string; label=Path to template layouts (FE)
+		layoutRootPath = EXT:wx_lottery/Resources/Private/Layouts/
+	}
+   path {
+      publicKeyFile = /Resources/Private/Encrypt/publicEncryptionKey.txt
+   }
+	persistence {
+		# cat=plugin.tx_wxlottery//a; type=string; label=Default storage PID
+		storagePid = 31
+	}
+}
+
+module.tx_wxlottery_companymanager {
+	view {
+		# cat=module.tx_wxlottery_companymanager/file; type=string; label=Path to template root (BE)
+		templateRootPath = EXT:wx_lottery/Resources/Private/Templates/
+		# cat=module.tx_wxlottery_companymanager/file; type=string; label=Path to template partials (BE)
+		partialRootPath = EXT:wx_lottery/Resources/Private/Partials/
+		# cat=module.tx_wxlottery_companymanager/file; type=string; label=Path to template layouts (BE)
+		layoutRootPath = EXT:wx_lottery/Resources/Private/Layouts/
+	}
+	persistence {
+		# cat=module.tx_wxlottery_companymanager//a; type=string; label=Default storage PID
+		storagePid = 31
+	}
+}

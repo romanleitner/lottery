@@ -1,0 +1,50 @@
+<f:layout name="Default" />
+
+
+<f:section name="main">
+	<div id="flash-messages" style="position: fixed; right: 5em; background-color: lightblue; border: 1px solid gray; border-radius: 5px;">
+		<f:flashMessages />
+	</div>
+	<div style="margin: 2em auto auto 5em;">
+		<h2>Landpage settings</h2>
+
+		<f:form action="save" name="LandpageSettings">
+			<table>
+				<tr>
+					<th>Ticket</th>
+					<th>Landpage</th>
+					<th>Superklasse</th>
+				</tr>
+				<f:for each="{tickets}" as="ticket">
+					<tr>
+						<td><label style="cursor: pointer;" for="tid-{ticket.uid}">{ticket.title}</label></td>
+						<td>
+							<f:if condition="{ticket.landpage}">
+								<f:then>
+									<input id="tid-{ticket.uid}" type="radio" name="landpage" value="{ticket.uid}" checked="checked" />
+								</f:then>
+								<f:else>
+									<input id="tid-{ticket.uid}" type="radio" name="landpage" value="{ticket.uid}" />
+								</f:else>
+							</f:if>
+						</td>
+						<td>
+							<f:if condition="{ticket.superklasse}">
+								<f:then>
+									<input type="checkbox" name="superklasse[{ticket.uid}]" value="{ticket.uid}" checked="checked" />
+								</f:then>
+								<f:else>
+									<input type="checkbox" name="superklasse[{ticket.uid}]" value="{ticket.uid}" />
+								</f:else>
+							</f:if>
+						</td>
+					</tr>
+				</f:for>
+				<tr>
+					<td colspan="3" style="text-align: right;"><button>Save</button></td>
+				</tr>
+			</table>
+		</f:form>
+	</div>
+</f:section>
+

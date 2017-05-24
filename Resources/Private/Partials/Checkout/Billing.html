@@ -1,0 +1,38 @@
+<div class="item ym-clearfix">
+	<f:render partial="Checkout/Label" arguments="{propertyName:'gender',propertyKey:'gender',required:1}" />
+	<f:form.select options="{genderOptions}" property="gender" />
+</div>
+<div class="item two ym-clearfix">
+	<div class="labels">
+		<f:render partial="Checkout/Label" arguments="{propertyName:'firstName',propertyKey:'first_name'}" />
+   	<f:render partial="Checkout/Label" arguments="{propertyName:'lastName',propertyKey:'last_name',required:1}" />
+  </div>
+	<f:form.textfield property="firstName" />
+	<f:form.textfield property="lastName" />
+</div>
+<div class="item ym-clearfix">
+	<f:render partial="Checkout/Label" arguments="{propertyName:'address',propertyKey:'address',required:1}" />
+	<f:form.textfield property="address" class="full" />
+</div>
+<div class="item two ym-clearfix">
+	<div class="labels">
+		<f:render partial="Checkout/Label" arguments="{propertyName:'zip',propertyKey:'zip'}" />
+  	<f:render partial="Checkout/Label" arguments="{propertyName:'city',propertyKey:'city',required:1}" />
+  </div>
+	<f:form.textfield property="zip" /><f:form.textfield property="city" />
+</div>
+<div class="item ym-clearfix">
+	<f:render partial="Checkout/Label" arguments="{propertyName:'country',propertyKey:'country',required:1}" />
+   <f:if condition="{langId} == 1">
+      <f:then>
+         <f:form.select options="{countryOptions}" property="country" optionValueField="uid" optionLabelField="shortNameEn"/>
+      </f:then>
+      <f:else>
+         <f:form.select options="{countryOptions}" property="country" optionValueField="uid" optionLabelField="shortNameDe"/>
+      </f:else>
+   </f:if>
+</div>
+<div class="item ym-clearfix">
+	<f:render partial="Checkout/Label" arguments="{propertyName:'email',propertyKey:'email',required:1}" />
+	<f:form.textfield property="email" class="full" />
+</div>

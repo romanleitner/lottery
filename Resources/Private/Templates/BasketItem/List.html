@@ -1,0 +1,226 @@
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+<f:layout name="Default" />
+
+This Template is responsible for creating a table of domain objects.
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+  Resources:
+    Private:
+      Templates:
+        List.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="main">
+
+<f:flashMessages />
+
+<h1>
+	<f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:cart.heading" />
+	</h1>
+<f:if condition="{enableSession} == 1">
+	<f:then>
+		<f:render section="cookie" />
+	</f:then>
+	<f:else>
+		<f:render section="basket" arguments="{basketItems:basketItems,basketTotal:basketTotal,jokerId:jokerId,chances:chances,langId:langId}" />
+	</f:else>
+</f:if>
+
+</f:section>
+
+<f:section name="basket">
+	<f:if condition="{basketItems}">
+
+		<f:then>
+
+			<f:form noCacheHash="true" actionUri="{v:uri.typolink(configuration: '{parameter: 23}')}" id="basketForm">
+				<table class="play basket">
+					<thead>
+						<tr>
+							<th></th>
+							<th class="name">
+								<f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:cart.col2" />
+							</th>
+							<th>
+								<f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:cart.col3" />
+							</th>
+							<th class="orange">
+								<f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:cart.col4" />
+							</th>
+							<th>
+								<f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:cart.col5" />
+							</th>
+							<th>
+								<f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:cart.col6" />
+							</th>
+							<th>
+								<f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:cart.col7" />
+							</th>
+							<th class="price">
+								<f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:cart.col8" />
+							</th>
+						</tr>
+					</thead>
+					<f:for each="{basketItems}" as="basketItem" iteration="i">
+						<tr {f:if(condition: i.isEven, then: 'class=odd')} id="{basketItem.uid}">
+							<td class="col">
+								<f:form.submit name="delete[{basketItem.uid}]" value="{f:translate(key: 'LLL:fileadmin/klassenlos.at/language/locallang.xml:cart.delete')}" class="delete" />
+							</td>
+							<td class="col name">
+								<p class="ticket_name">{basketItem.ticket.title}</p>
+								<p class="ticket_desc">{basketItem.ticket.description}</p>
+								<f:if condition="{basketItem.ticket.icon}">
+									<f:image src="uploads/tx_wxlottery/{basketItem.ticket.icon}" alt="{basketItem.ticket.title}" />
+								</f:if>
+							</td>
+							<td class="col guarantee">
+								<f:if condition="{basketItem.ticket.moneyBack} == 1">
+                           <f:link.page pageUid="22">
+										<img src="<f:cObject typoscriptObjectPath="lib.moneyBackGuaranteeIcon" />" alt="<f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:header.icon_euro_label" />" />
+                           </f:link.page>
+								</f:if>
+							</td>
+							<f:if condition="{jokerId} == {basketItem.ticket.uid}">
+								<f:then>
+									<td class="col orange" id="jokerWinChance">
+								</f:then>
+								<f:else>
+									<td class="col orange">
+								</f:else>
+							</f:if>
+								<f:if condition="{basketItem.ticket.winPrice}">
+     								<f:if condition="{jokerId} == {basketItem.ticket.uid}">
+   									<f:then>
+   										 &euro;&nbsp;<f:format.number thousandsSeparator="." decimals="0"><v:math.product a="{basketItem.ticket.winPrice}" fail="1" b="{basketItem.amount}" /></f:format.number>,-
+   									</f:then>
+   									<f:else>
+                       &euro;&nbsp;<f:format.number thousandsSeparator="." decimals="0">{basketItem.ticket.winPrice}</f:format.number>,-
+   									</f:else>
+								   </f:if>
+								</f:if>
+							</td>
+							<td class="col chance">
+								<f:if condition="{basketItem.ticket.chances}">
+									<v:variable.get name="chances.{basketItem.uid}" useRawKeys="1" />&nbsp;%
+								</f:if>
+							</td>
+							<td class="col price2">
+								<f:if condition="{jokerId} != {basketItem.ticket.uid}">
+									<f:then>
+                              <f:if condition="{langId} == 1">
+                                 <f:then>
+                                    <f:format.currency currencySign="£" decimalSeparator="," thousandsSeparator="." prependCurrency="TRUE" separateCurrency="true" decimals="2">{basketItem.ticket.cost}</f:format.currency>
+                                 </f:then>
+                                 <f:else>
+                                    <f:format.currency currencySign="€" decimalSeparator="," thousandsSeparator="." prependCurrency="TRUE" separateCurrency="true" decimals="0">{basketItem.ticket.cost}</f:format.currency>,-
+                                 </f:else>
+                              </f:if>                           
+									</f:then>
+								</f:if>
+							</td>
+							<td class="col">
+								<f:if condition="{jokerId} == {basketItem.ticket.uid}">
+									<f:then>
+										<f:form.hidden name="amount[{basketItem.uid}]" value="{basketItem.amount}" />
+									</f:then>
+									<f:else>
+										<a class="less">-</a>
+										<f:form.textfield name="amount[{basketItem.uid}]" value="{basketItem.amount}" id="{basketItem.uid}" class="pieces-text" />
+										<f:form.select value="{basketItem.amount}" class="pieces" options="{
+											1:'1 Stück',
+											2:'2 Stück',
+											3:'3 Stück',
+											4:'4 Stück',
+											5:'5 Stück',
+											6:'6 Stück',
+											7:'7 Stück',
+											8:'8 Stück',
+											9:'9 Stück',
+											10:'10 Stück',
+											11:'11 Stück',
+											12:'12 Stück',
+											13:'13 Stück',
+											14:'14 Stück',
+											15:'15 Stück',
+											16:'16 Stück',
+											17:'17 Stück',
+											18:'18 Stück',
+											19:'19 Stück',
+											20:'20 Stück'
+										}" />
+										<a class="more">+</a>
+									</f:else>
+								</f:if>
+							</td>
+							<td class="col price">
+                        <f:if condition="{basketItem.amount}">
+                           <f:then>
+                              <f:if condition="{langId} == 1">
+                                 <f:then>
+                                    <span class="subtotal"><f:format.currency currencySign="£" decimalSeparator="," thousandsSeparator="." prependCurrency="TRUE" separateCurrency="true" decimals="2"><v:math.product a="{basketItem.ticket.cost}" fail="1" b="{basketItem.amount}" /></f:format.currency></span>
+                                 </f:then>
+                                 <f:else>
+                                    <span class="subtotal"><f:format.currency currencySign="€" decimalSeparator="," thousandsSeparator="." prependCurrency="TRUE" separateCurrency="true" decimals="0"><v:math.product a="{basketItem.ticket.cost}" fail="1" b="{basketItem.amount}" /></f:format.currency>,-</span>
+                                 </f:else>
+                              </f:if>                               
+                           </f:then>
+                           <f:else>
+                              &nbsp;
+                           </f:else>
+                        </f:if>
+							</td>  
+						</tr>
+					</f:for>
+					<tr class="options">
+						<td colspan="6">
+							<f:link.page pageUid="2">
+								&laquo;&nbsp;<f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:cart.continue_shopping" />
+							</f:link.page>
+						</td>
+						<td colspan="2" class="last">
+							<f:form.submit name="recalculate" value="{f:translate(key: 'LLL:fileadmin/klassenlos.at/language/locallang.xml:cart.recalculate')}" />
+						</td>
+					</tr>
+					<tr class="last">
+						<td colspan="6">
+							<f:image src="fileadmin/klassenlos.at/images/common/basket_icons.png" alt="" />
+							<f:image src="fileadmin/klassenlos.at/images/common/ssl-icon.png" alt="" />
+						</td>
+						<td colspan="2" class="last">
+							<f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:cart.total" /><br />
+							<span>
+                        <f:if condition="{langId} == 1">
+                           <f:then>
+                              <span class="subtotal"><f:format.currency currencySign="£" decimalSeparator="," thousandsSeparator="." prependCurrency="TRUE" separateCurrency="true" decimals="2">{basketTotal}</f:format.currency></span>
+                           </f:then>
+                           <f:else>
+                              <span class="subtotal"><f:format.currency currencySign="€" decimalSeparator="," thousandsSeparator="." prependCurrency="TRUE" separateCurrency="true" decimals="0">{basketTotal}</f:format.currency>,-</span>
+                           </f:else>
+                        </f:if>
+                     </span>                     
+							<f:link.page pageUid="30" class="button">
+								<f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:cart.checkout" />&nbsp;&raquo;
+							</f:link.page>
+						</td>
+						<td></td>
+					</tr>
+				</table>
+			</f:form>
+			
+		</f:then>
+		<f:else>
+			<p>
+				<f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:cart.empty" />.
+			</p>
+		</f:else>
+
+	</f:if>
+</f:section>
+
+<f:section name="cookie">
+	<p>
+		<f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:cart.cookies" />
+	</p>
+</f:section>

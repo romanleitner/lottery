@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="de" target-language="en" datatype="plaintext" original="messages" date="2014-02-18T08:26:16Z" product-name="wx_lottery">
+		<header/>
+		<body>
+
+			<trans-unit id="tx_wxlottery_domain_model_ticket">
+				<source>Ticket</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_ticket.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_ticket.description">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_ticket.category">
+				<source>Category</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_ticket.icon">
+				<source>Icon</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_ticket.win_price">
+				<source>Winning price</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_ticket.cost">
+				<source>Ticket price</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_ticket.chances">
+				<source>Chances to win [%]</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_ticket.money_back">
+				<source>Money back guarantee</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_ticket.nr_of_tickets">
+				<source>Nr. of tickets included</source>
+			</trans-unit>
+			
+			<trans-unit id="tx_wxlottery_domain_model_checkout">
+				<source>Checkout</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_checkout.select_default">
+				<source>Bitte auswählen</source>
+            <target>Please select</target>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.last_name">
+				<source>Nachname</source>
+            <target>Last name</target>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.first_name">
+				<source>Vorname,</source>
+            <target>First name,</target>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.gender">
+				<source>Anrede</source>
+            <target>Title</target>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_checkout.gender_1">
+				<source>Mann</source>
+            <target>Man</target>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_checkout.gender_2">
+				<source>Frau</source>
+            <target>Woman</target>
+			</trans-unit>         
+			<trans-unit id="tx_wxlottery_domain_model_checkout.country">
+				<source>Land</source>
+            <target>Country</target>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_checkout.country_1">
+				<source>Österreich</source>
+            <target>Austria</target>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_checkout.country_2">
+				<source>Deutschland</source>
+            <target>Germany</target>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.zip">
+				<source>PLZ,</source>
+            <target>ZIP,</target>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.city">
+				<source>Ort</source>
+            <target>City</target>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.address">
+				<source>Adresse</source>
+            <target>Address</target>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.email">
+				<source>E-Mail Adresse</source>
+            <target>Email</target>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.delivery">
+				<source>Delivery type</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.payment">
+				<source>Payment type</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.session_id">
+				<source>Session ID</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.finished_step">
+				<source>Finished spet</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.d_gender">
+				<source>Gender - delivery</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.d_first_name">
+				<source>First name - delivery</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.d_last_name">
+				<source>Last name - delivery</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.d_country">
+				<source>Country - delivery</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.d_zip">
+				<source>Zip - delivery</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.d_city">
+				<source>City - delivery</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.d_address">
+				<source>Address - delivery</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_checkout.d_email">
+				<source>Email - delivery</source>
+			</trans-unit>
+			
+			<trans-unit id="tx_wxlottery_domain_model_basketitem">
+				<source>BasketItem</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_basketitem.session_id">
+				<source>Session ID</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_basketitem.user_agent">
+				<source>HTTP user agent</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_basketitem.time">
+				<source>Time</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_basketitem.amount">
+				<source>Amount</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_basketitem.ip_address">
+				<source>IP address</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_basketitem.status">
+				<source>Status</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_basketitem.ticket">
+				<source>ticket</source>
+			</trans-unit>
+			
+			<trans-unit id="tx_wxlottery_domain_model_partnerlog">
+				<source>PartnerLog</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_partnerlog.partner">
+				<source>Partner</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_partnerlog.amount">
+				<source>Amount</source>
+			</trans-unit>
+			<trans-unit id="tx_wxlottery_domain_model_partnerlog.session_id">
+				<source>Session ID</source>
+			</trans-unit>
+
+         <trans-unit id="tx_wxlottery_domain_model_basketitem.validation_error_newCheckout.error">
+				<source>Alle mit * gekennzeichneten Felder sind Pflichtfelder</source>
+            <target>All fields marked with * are mandatory</target>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_basketitem.validation_error_newCheckout.lastName">
+				<source>Last name is required!</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_basketitem.validation_error_newCheckout.firstName">
+				<source>First name is required!</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_basketitem.validation_error_newCheckout.zip">
+				<source>ZIP is required!</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_basketitem.validation_error_newCheckout.city">
+				<source>City is required!</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_basketitem.validation_error_newCheckout.address">
+				<source>Address is required!</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_basketitem.validation_error_newCheckout.email">
+				<source>Email is required!</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_basketitem.validation_error_newCheckout.country">
+				<source>Country is required!</source>
+			</trans-unit>
+         <trans-unit id="tx_wxlottery_domain_model_basketitem.empty_basket">
+				<source>Basket is empty, please put a ticket into basket first!</source>
+			</trans-unit>
+			
+		</body>
+	</file>
+</xliff>

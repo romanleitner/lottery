@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2014-02-27T13:58:36Z" product-name="wx_lottery">
+		<header/>
+		<body>
+
+			<trans-unit id="session_id.description">
+				<source>Session ID</source>
+			</trans-unit>
+			<trans-unit id="user_agent.description">
+				<source>HTTP user agent</source>
+			</trans-unit>
+			<trans-unit id="time.description">
+				<source>Time</source>
+			</trans-unit>
+			<trans-unit id="amount.description">
+				<source>Amount</source>
+			</trans-unit>
+			<trans-unit id="ip_address.description">
+				<source>IP address</source>
+			</trans-unit>
+			<trans-unit id="status.description">
+				<source>Status</source>
+			</trans-unit>
+			<trans-unit id="ticket.description">
+				<source>ticket</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

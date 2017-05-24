@@ -1,0 +1,94 @@
+plugin.tx_wxlottery {
+	view {
+		templateRootPath = {$plugin.tx_wxlottery.view.templateRootPath}
+		partialRootPath = {$plugin.tx_wxlottery.view.partialRootPath}
+		layoutRootPath = {$plugin.tx_wxlottery.view.layoutRootPath}
+	}
+	persistence {
+		storagePid = {$plugin.tx_wxlottery.persistence.storagePid}
+	}
+	features {
+		# uncomment the following line to enable the new Property Mapper.
+		# rewrittenPropertyMapper = 1
+	}
+	settings{
+		exchangeRate = {$plugin.tx_wxlottery.exchangeRate}
+		category{
+			# pid = cateogry
+			8 = 1
+			9 = 2
+			24 = 3
+			25 = 4
+		}
+		joker {
+			uid = 1
+			cost {
+				0 = 12,
+				1 = 10
+			}
+		}
+		path {
+			publicKeyFile = {$plugin.tx_wxlottery.path.publicKeyFile}
+		}
+		storagePid{
+			basket = 29
+			checkout = 31
+		}
+		redirectPid{
+			orderConfirmation{
+				1 = 32
+				2 = 39
+			}
+			basket = 23
+		}
+		adminEmail{
+			# 1 => Hohebrücke
+			1.senderEmail = office@hohebruecke.at
+			1.senderName = Hohe Brücke WIEN
+			1.adminEmail = office@hohebruecke.at,prokopp@prokopp.at 
+			#1.adminEmail = rl@webaholix.com,bi@issi.at
+ 
+			# 2 => Prokopp
+			2.senderEmail = prokopp@prokopp.at
+			2.senderName = Prokopp
+			2.adminEmail = office@hohebruecke.at,prokopp@prokopp.at
+			#2.adminEmail = rl@webaholix.com,bi@issi.at
+		}
+		classRounds = 6
+		lotteryYear = 184
+		classes{
+			# fomat [class round] = [d.m.YYYY of last round in class]
+			1 = 29.5.2017
+			2 = 26.6.2017
+			3 = 24.7.2017
+			4 = 21.8.2017
+			5 = 18.9.2017
+			6 = 16.10.2017 
+		}
+		chances {
+			1 = 71.75
+			2 = 92.02
+			3 = 97.74
+			4 = 99.36
+			5 = 99.82
+			6 = 99.95
+			7 = 99.99
+		}     
+	}
+}
+
+plugin.tx_wxlottery._CSS_DEFAULT_STYLE (
+
+)
+
+# Module configuration
+module.tx_wxlottery_tools_wxlotterycompanymanager {
+	persistence {
+		storagePid = {$module.tx_wxlottery_companymanager.persistence.storagePid}
+	}
+	view {
+		templateRootPaths.0 = {$module.tx_wxlottery_companymanager.view.templateRootPath}
+		partialRootPaths.0 = {$module.tx_wxlottery_companymanager.view.partialRootPath}
+		layoutRootPaths.0 = {$module.tx_wxlottery_companymanager.view.layoutRootPath}
+	}
+}

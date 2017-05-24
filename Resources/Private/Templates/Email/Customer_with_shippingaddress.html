@@ -1,0 +1,322 @@
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+<f:layout name="Default" />
+
+<f:section name="main">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+  	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+  	<title>Klassenlos.at E-mail</title>
+  	<style type="text/css">
+  		body{margin:0;padding:0;font-family:arial,sans-serif;background-color:#fcf4e7;}
+  		p{font-size:14px;line-height:17px;text-align:left;}
+  		h1{font-size:18px;font-weight:bold;margin-top:20px;text-align:left;}
+  		h5{font-size:14px;margin:0;text-align:left;}
+  		h5 span{color:#e59100;}
+  		a{color:#e59100;text-decoration:underline;}
+  	</style>
+  </head>
+  <body>
+		<table bgcolor="#fcf4e7" cellspacing="0" cellpadding="0" width="100%">
+			<tr>
+				<td align="center">
+					<table bgcolor="#ffffff" style="background-color:#ffffff;" cellspacing="0" cellpadding="0" width="600">
+						<tr>
+							<td rowspan="9" width="30" bgcolor="#ffffff" style="background-color:#ffffff;vertical-align:top;"><img src="{domain}fileadmin/klassenlos.at/images/common/blank.jpg" alt="" height="100%" width="30" /></td>
+							<td width="540" style="padding-top:23px;padding-bottom:32px;text-align:left;">
+								<img src="{domain}fileadmin/klassenlos.at/images/common/logo.png" alt="{f:translate(key: 'email.logo_alt')}" />
+							</td>
+							<td rowspan="9" width="30" bgcolor="#ffffff" style="background-color:#ffffff;vertical-align:top;"><img src="{domain}fileadmin/klassenlos.at/images/common/blank.jpg" alt="" height="100%" width="30" /></td>
+						</tr>
+						<tr>
+							<td>
+								<img src="{domain}fileadmin/klassenlos.at/images/common/email-header.jpg" alt="{f:translate(key: 'email.thankyou_alt')}" />
+							</td>
+						</tr>            
+						<tr>
+							<td>
+								<h1>
+									<f:if condition="{checkout.gender} == 1">
+										<f:then>
+											<f:translate key="email.thank_you_text_man" />
+										</f:then>
+										<f:else>
+											<f:translate key="email.thank_you_text_woman" />
+										</f:else>
+									</f:if>
+									 {checkout.firstName} {checkout.lastName},
+								</h1>
+								<p style="margin-bottom:18px;">
+									<f:translate key="email.intro_text" />
+								</p>
+							</td>
+						</tr>
+						<tr>
+							<td bgcolor="#dedede">
+								<table cellspacing="0" cellpadding="20" width="540">
+									<tr>
+										<td width="296">
+											<p><strong><f:translate key="email.partner_header" /></strong></p>
+											<f:if condition="{partner} == 1">
+												<f:then>
+													<f:comment>Hohebrücke</f:comment>
+													<p>
+														<f:translate key="email.partner_hohebruecke_address" arguments="{0:'<strong>',1:'</strong>',2:'<br />'}" />
+													</p>
+													</td>
+													<td width="244" align="right">
+														<img src="{domain}fileadmin/klassenlos.at/images/common/email-logo-partner-hohebruecke.jpg" alt="Hohebrücke" />
+													</td>
+												</f:then>
+												<f:else>
+													<f:comment>Prokopp</f:comment>
+													<p>
+														<f:translate key="email.partner_prokopp_address" arguments="{0:'<strong>',1:'</strong>',2:'<br />'}" />
+													</p>
+													</td>
+													<td width="244" align="right">
+														<img src="{domain}fileadmin/klassenlos.at/images/common/email-logo-partner-prokopp.jpg" alt="Prokopp" />
+													</td>
+												</f:else>
+											</f:if>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<td style="height:20px;">&nbsp;</td>
+						</tr>
+						<tr>
+							<td>
+								<table cellspacing="0" cellpadding="0" width="540">
+									<tr>
+										<td style="border-bottom:1px solid #eaeaea;padding-bottom:20px;">
+											<h5>
+												<span><f:translate key="email.order_no" /></span> 0000{checkout.uid}
+											</h5>
+										</td>
+										<td style="border-bottom:1px solid #eaeaea;padding-bottom:20px;">
+											<h5>
+												<span><f:translate key="email.order_date" />:</span> <f:format.date format="d.m.Y">{dateObject}</f:format.date>
+											</h5>
+										</td>
+									</tr>
+									<tr>
+										<td style="padding-top:10px;padding-bottom:10px;border-bottom:1px solid #eaeaea;">
+											<h5 style="font-size:12px;">
+												<span><f:translate key="email.billing_address" /></span>
+											</h5>
+											<p style="font-size:12px;">
+												<f:for each="{genders}" key="genderId" as="gender">
+													<f:if condition="{genderId} == {checkout.gender}">
+														{gender}
+													</f:if>
+												</f:for>
+												{checkout.firstName} {checkout.lastName}<br />
+												{checkout.address}<br />
+												{checkout.zip} {checkout.city}<br />
+												<f:for each="{countries}" key="countryId" as="country">
+													<f:if condition="{countryId} == {checkout.country}">
+														{country}<br />
+													</f:if>
+												</f:for>
+												{checkout.email}
+											</p>
+										</td>
+										<td style="padding-top:10px;padding-bottom:10px;border-bottom:1px solid #eaeaea;">
+											<h5 style="font-size:12px;">
+												<span><f:translate key="email.shipping_address" /></span>
+											</h5>
+											<p style="font-size:12px;">
+												<f:if condition="{checkout.dGender}">
+													<f:then>
+														<f:for each="{genders}" key="genderId" as="gender">
+															<f:if condition="{genderId} == {checkout.dGender}">
+																{gender}
+															</f:if>
+														</f:for>   
+													</f:then>
+													<f:else>
+														<f:for each="{genders}" key="genderId" as="gender">
+															<f:if condition="{genderId} == {checkout.gender}">
+																{gender}
+															</f:if>
+														</f:for>
+													</f:else>
+												</f:if>                     
+												{f:if(condition: checkout.dFirstName, then: '{checkout.dFirstName}', else: '{checkout.firstName}')}
+												{f:if(condition: checkout.dLastName, then: '{checkout.dLastName}', else: '{checkout.lastName}')}<br />
+												{f:if(condition: checkout.dAddress, then: '{checkout.dAddress}', else: '{checkout.address}')}<br />
+												{f:if(condition: checkout.dZIp, then: '{checkout.dZip}', else: '{checkout.zip}')} 
+												{f:if(condition: checkout.dCity, then: '{checkout.dCity}', else: '{checkout.city}')}<br />
+												<f:if condition="{checkout.dCountry}">
+													<f:then>
+														<f:for each="{countries}" key="countryId" as="country">
+															<f:if condition="{countryId} == {checkout.dCountry}">
+																{country}<br />
+															</f:if>
+														</f:for> 
+													</f:then>
+													<f:else>
+														<f:for each="{countries}" key="countryId" as="country">
+															<f:if condition="{countryId} == {checkout.country}">
+																{country}<br />
+															</f:if>
+														</f:for>
+													</f:else>
+												</f:if>                   
+												{f:if(condition: checkout.dEmail, then: '{checkout.dEmail}', else: '{checkout.email}')}
+											</p>
+										</td>
+									</tr>
+									<tr>
+										<td style="padding-top:10px;padding-bottom:20px;">
+											<h5>
+												<span><f:translate key="email.payment" /></span>
+											</h5>
+											<p>
+												<f:for each="{buyAllClases}" key="classId" as="className">
+													<f:if condition="{classId} == {checkout.buyAllClasses}">
+														{className}
+													</f:if>
+												</f:for>
+											</p>
+										</td>
+										<td style="padding-top:10px;padding-bottom:20px;">
+											<h5>
+												<span><f:translate key="email.shipping" /></span>
+											</h5>
+											<p>
+												<f:for each="{deliveries}" key="deliveryId" as="delivery">
+													<f:if condition="{deliveryId} == {checkout.delivery}">
+														{delivery}
+													</f:if>
+												</f:for>
+											</p>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<table cellspacing="0" cellpadding="0" width="540" style="font-size:14px;">
+									<tr bgcolor="#000000">
+										<td style="font-size:11px;color:#ffffff;text-align:left;padding-left:12px;padding-top:4px;padding-bottom:4px;padding-right:12px;width:305px;">
+											Lose
+										</td>
+										<td style="font-size:11px;color:#ffffff;text-align:center;padding-left:12px;padding-top:4px;padding-bottom:4px;padding-right:12px;width:120px;">
+											Preis pro Klasse
+										</td>
+										<td style="font-size:11px;color:#ffffff;text-align:center;padding-left:12px;padding-top:4px;padding-bottom:4px;padding-right:12px;width:60px;">
+											Anzahl
+										</td>
+										<td style="font-size:11px;color:#ffffff;text-align:right;padding-left:12px;padding-top:4px;padding-bottom:4px;padding-right:12px;width:85px;">
+											<f:translate key="tx_wxlottery_domain_model_checkout.checkout.subtotal" />
+										</td>
+									</tr>
+									<f:for each="{basketItems}" as="basketItem" iteration="i">
+										<tr {f:if(condition: i.isEven, then: 'bgcolor="#f8f8f8"')}>
+											<td style="padding:12px;border-bottom:1px solid #eaeaea;text-align:left;">
+												{basketItem.ticket.title}
+											</td>
+											<td style="padding:12px;border-bottom:1px solid #eaeaea;text-align:center;">
+												<f:translate key="tx_wxlottery_domain_model_ticket.currency" />&nbsp;{basketItem.ticket.cost},-
+											</td>
+											<td style="padding:12px;border-bottom:1px solid #eaeaea;text-align:center;">
+												{basketItem.amount}
+											</td>
+											<td align="right" style="padding:12px;border-bottom:1px solid #eaeaea;text-align:right;">
+												<f:translate key="tx_wxlottery_domain_model_ticket.currency" />&nbsp;<v:math.product a="{basketItem.ticket.cost}" fail="foo" b="{basketItem.amount}" />,-
+											</td>
+										</tr>
+									</f:for>
+									<tr bgcolor="#fcf4e7">
+										<td colspan="3" align="right" style="padding-left:12px;padding-right:12px;padding-top:12px;padding-bottom:3px;">
+											<b><f:translate key="tx_wxlottery_domain_model_checkout.checkout.subtotal" /></b>
+										</td>
+										<td align="right" style="padding-left:12px;padding-right:12px;padding-top:12px;padding-bottom:3px;">
+											<b><f:translate key="tx_wxlottery_domain_model_ticket.currency" />&nbsp;{basketItemsTotal},-</b>
+										</td>
+									</tr>
+									<tr bgcolor="#fcf4e7">
+										<td colspan="3" align="right" style="padding-left:12px;padding-right:12px;padding-bottom:3px;">
+											<f:for each="{deliveries}" key="deliveryId" as="delivery">
+												<f:if condition="{deliveryId} == {checkout.delivery}">
+													<b>{delivery}</b>
+												</f:if>
+											</f:for>
+										</td>
+										<td align="right" style="padding-left:12px;padding-right:12px;padding-bottom:3px;">
+											<b><f:translate key="tx_wxlottery_domain_model_ticket.currency" />&nbsp;{checkout.deliveryPrice},-</b>
+										</td>
+									</tr>
+									<tr bgcolor="#fcf4e7">
+										<td colspan="3" align="right" style="padding-left:12px;padding-right:12px;padding-bottom:3px;">
+											<b><f:translate key="tx_wxlottery_domain_model_checkout.pastClassPayment" /></b>
+										</td>
+										<td align="right" style="padding-left:12px;padding-right:12px;padding-bottom:3px;">
+											<b><f:translate key="tx_wxlottery_domain_model_ticket.currency" />&nbsp;{checkout.pastClassPayment},-</b>
+										</td>
+									</tr>
+									<tr bgcolor="#fcf4e7">
+										<td colspan="3" align="right" style="padding-left:12px;padding-right:12px;padding-bottom:12px;">
+											<b><f:translate key="tx_wxlottery_domain_model_checkout.futureClassPayment" /></b>
+										</td>
+										<td align="right" style="padding-left:12px;padding-right:12px;padding-bottom:12px;">
+											<b><f:translate key="tx_wxlottery_domain_model_ticket.currency" />&nbsp;{checkout.futureClassPayment},-</b>
+										</td>
+									</tr>
+									<tr bgcolor="#fcf4e7">
+										<td colspan="3" align="right" style="padding-left:12px;padding-right:12px;padding-bottom:12px;">
+											<b style="font-size:18px;color:#e59100;"><f:translate key="tx_wxlottery_domain_model_checkout.checkout.total" /></b>
+										</td>
+										<td align="right" style="padding-left:12px;padding-right:12px;padding-bottom:12px;">
+											<b style="font-size:18px;color:#e59100;"><f:translate key="tx_wxlottery_domain_model_ticket.currency" />&nbsp;{basketTotal},-</b>
+										</td>
+									</tr>                                                                    
+								</table>               
+							</td>
+						</tr>
+						<tr>
+							<td style="padding-top:20px;padding-bottom:20px;border-bottom:1px solid #eaeaea;">
+								<p style="font-size:12px;text-align:center;margin-bottom:12px;"><f:translate key="email.important_info_text" /></p>
+								<p style="font-size:12px;text-align:center;"><b><f:translate key="email.conditions_text" /> <f:link.external uri="?id=18"><f:translate key="email.conditions_link_text" />&nbsp;&raquo;</f:link.external></b></p>
+							</td>
+						</tr>
+						<tr>
+							<td style="padding-top:20px;padding-bottom:25px;">
+								<table cellspacing="0" cellpadding="0" width="540">
+									<tr>
+										<td style="text-align:left;">
+											<img src="{domain}fileadmin/klassenlos.at/images/common/email_partner.jpg" alt="{f:translate(key:'email.partner_alt')}" />
+										</td>
+										<td align="right">
+											<img src="{domain}fileadmin/klassenlos.at/images/common/email_verantwortung.jpg" alt="{f:translate(key:'email.responsibility_alt')}" />
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+					<table cellspacing="0" cellpadding="0" bgcolor="#000000" width="600" style="background-color:#000000;">
+						<tr>
+							<td style="padding-top:20px;padding-bottom:20px;">
+								<p style="font-size:11px;color:#ffffff;text-align:center;">
+									<b>&copy;&nbsp;<f:cObject typoscriptObjectPath="lib.currentYear" /> <f:translate key="email.logo_alt" /></b><br />
+									Wipplingerstraße 21, A-1013 Wien<br />
+									E-Mail: <f:link.email email="mailto:info@klassenlos.at">info@klassenlos.at</f:link.email>
+								</p>
+								<p style="font-size:11px;color:#ffffff;text-align:center;">
+									<f:link.external uri="{domain}?id=18" style="color:#fff;"><f:translate key="email.footer_link1_text" /></f:link.external>&nbsp;&nbsp;|&nbsp;&nbsp;<f:link.external uri="{domain}?id=18" style="color:#fff;"><f:translate key="email.footer_link2_text" /></f:link.external>&nbsp;&nbsp;|&nbsp;&nbsp;<f:link.external uri="{domain}?id=18" style="color:#fff;"><f:translate key="email.footer_link3_text" /></f:link.external>&nbsp;&nbsp;|&nbsp;&nbsp;<f:link.external uri="{domain}?id=13" style="color:#fff;"><f:translate key="email.footer_link4_text" /></f:link.external> 
+								</p>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>
+</f:section>

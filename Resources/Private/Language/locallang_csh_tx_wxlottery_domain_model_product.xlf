@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2014-01-23T08:54:20Z" product-name="wx_lottery">
+		<header/>
+		<body>
+
+			<trans-unit id="title.description">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="description.description">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="icon.description">
+				<source>Icon</source>
+			</trans-unit>
+			<trans-unit id="win_price.description">
+				<source>Winning price</source>
+			</trans-unit>
+			<trans-unit id="cost.description">
+				<source>Ticket price</source>
+			</trans-unit>
+			<trans-unit id="changes.description">
+				<source>Chances to win [%]</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

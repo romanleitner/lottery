@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2014-02-27T13:58:36Z" product-name="wx_lottery">
+		<header/>
+		<body>
+
+			<trans-unit id="last_name.description">
+				<source>Last name</source>
+			</trans-unit>
+			<trans-unit id="first_name.description">
+				<source>First name</source>
+			</trans-unit>
+			<trans-unit id="gender.description">
+				<source>Gender</source>
+			</trans-unit>
+			<trans-unit id="country.description">
+				<source>Country</source>
+			</trans-unit>
+			<trans-unit id="zip.description">
+				<source>ZIP</source>
+			</trans-unit>
+			<trans-unit id="city.description">
+				<source>City</source>
+			</trans-unit>
+			<trans-unit id="address.description">
+				<source>Address</source>
+			</trans-unit>
+			<trans-unit id="email.description">
+				<source>Email</source>
+			</trans-unit>
+			<trans-unit id="session_id.description">
+				<source>Session ID</source>
+			</trans-unit>
+			<trans-unit id="d_gender.description">
+				<source>Gender - delivery</source>
+			</trans-unit>
+			<trans-unit id="d_first_name.description">
+				<source>First name - delivery</source>
+			</trans-unit>
+			<trans-unit id="d_last_name.description">
+				<source>Last name - delivery</source>
+			</trans-unit>
+			<trans-unit id="d_country.description">
+				<source>Country - delivery</source>
+			</trans-unit>
+			<trans-unit id="d_zip.description">
+				<source>Zip - delivery</source>
+			</trans-unit>
+			<trans-unit id="d_city.description">
+				<source>City - delivery</source>
+			</trans-unit>
+			<trans-unit id="d_address.description">
+				<source>Address - delivery</source>
+			</trans-unit>
+			<trans-unit id="d_email.description">
+				<source>Email - delivery</source>
+			</trans-unit>
+			<trans-unit id="finished_step.description">
+				<source>Finished spet</source>
+			</trans-unit>
+			<trans-unit id="delivery.description">
+				<source>Delivery type</source>
+			</trans-unit>
+			<trans-unit id="payment.description">
+				<source>Payment type</source>
+			</trans-unit>
+			<trans-unit id="buy_all_classes.description">
+				<source>Buy all classes</source>
+			</trans-unit>
+			<trans-unit id="debit_bank_name.description">
+				<source>debit - Bank name</source>
+			</trans-unit>
+			<trans-unit id="debit_sort_code.description">
+				<source>Email - Bank sort code</source>
+			</trans-unit>
+			<trans-unit id="debit_account_nr.description">
+				<source>debit - Account nr.</source>
+			</trans-unit>
+			<trans-unit id="debig_account_holder.description">
+				<source>debit - Account holder</source>
+			</trans-unit>
+			<trans-unit id="cc_holder_name.description">
+				<source>cc - Holder name</source>
+			</trans-unit>
+			<trans-unit id="cc_type.description">
+				<source>cc - Card type</source>
+			</trans-unit>
+			<trans-unit id="cc_account_nr.description">
+				<source>cc - Account Nr.</source>
+			</trans-unit>
+			<trans-unit id="cc_expire_month.description">
+				<source>cc - Expire month</source>
+			</trans-unit>
+			<trans-unit id="cc_expire_year.description">
+				<source>cc - Expire year</source>
+			</trans-unit>
+			<trans-unit id="cc_verification_nr.description">
+				<source>cc - Verification Nr.</source>
+			</trans-unit>
+			<trans-unit id="payment_info.description">
+				<source>Encrypted payment info</source>
+			</trans-unit>
+			<trans-unit id="order_sent_to.description">
+				<source>Order sent to partner:</source>
+			</trans-unit>
+			<trans-unit id="past_class_payment.description">
+				<source>Price for past classes</source>
+			</trans-unit>
+			<trans-unit id="future_class_payment.description">
+				<source>Price for future classes</source>
+			</trans-unit>
+			<trans-unit id="delivery_price.description">
+				<source>Delivery price</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

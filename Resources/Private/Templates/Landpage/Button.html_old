@@ -1,0 +1,65 @@
+<f:layout name="Default" />
+
+
+<f:section name="main">
+	<div id="lottaryOverlay" class="overlay">
+		<div class="msg">Ihre Lose wurden erfolgreich in den Warenkorb gelegt.</div>
+		<div class="inner">
+			<h1>Superklasse</h1>
+			<h2>
+				Steigern Sie Ihre Gewinnchance noch weiter - mit der Superklasse um nur € 
+				<span id="joker-price" data-language="0">12</span>
+			</h2>
+			<!--  CONTENT ELEMENT, uid:102/text [begin] -->
+			<div id="c102" class="csc-default">
+				<!--  Text: [begin] -->
+				<p class="bodytext">Die Superklasse ist ein Zusatzspiel zur 182. Klassenlotterie. An den Ziehungen nimmt man mit den Klassenlosen, die auch in der 182. Klassenlotterie gespielt werden, teil. In der Superklasse genügt eine einmalige Zahlung von&nbsp;€&nbsp;12,- pro Zehntellos, um auch beim Zusatzspiel der Österreichischen Klassenlotterie dabei zu sein. Die Ziehungen finden von 16.05.2016 bis 24.10.2016 statt.</p>
+				<p class="bodytext">Vom 16.05.2016 bis 23.10.2016 wird täglich eine Gewinnsumme von&nbsp;€&nbsp;100.000,- ausgespielt. Bei der Schlussverlosung am 24.10.2016 werden außerdem nochmals&nbsp;7x&nbsp;€&nbsp;100.000,- ausgespielt. Insgesamt ist das eine Gewinnsumme von 16,8 Millionen Euro.</p>
+				<!--  Text: [end] -->
+			</div>
+			<!--  CONTENT ELEMENT, uid:102/text [end] -->
+			<h3>Klicken Sie auf <span>"In den Warenkorb"</span>, um auch an der Superklasse teilzunehmen und Ihre  Gewinnchancen noch zu erhöhen.</h3>
+			<p>
+				<a href="javascript:continueWithJoker();" class="button" id="wx-with-joker">In den Warenkorb&nbsp;&raquo;</a>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="javascript:continueWithoutJoker();" class="link" id="wx-without-joker"><span>Nein danke!</span> Ohne Superklasse zum Warenkorb&nbsp;&raquo;</a>
+			</p>
+		</div>
+	</div>
+
+	<h1>{ticket.title}</h1>
+	<h3>{ticket.description}</h3>
+	<f:form id="wx-landpage-form" action="addLandpageTicket" method="post">
+		<f:form.hidden id="joker" name="joker" value="0" />
+		<span onclick="ticketRemove();" style="cursor: pointer; font-size: 2em; font-weight: bold;">-</span>
+		<f:form.textfield id="count" name="count" style="width: 2em; height: 2em; border-radius: 5px; text-align: center;" value="1" />
+		<span onclick="ticketAdd();" style="cursor: pointer; font-size: 2em; font-weight: bold;">+</span>
+		<script>
+			function ticketAdd() {
+				var count = $('#count');
+				count.val(parseInt(count.val()) + 1);
+			}
+			function ticketRemove() {
+				var count = $('#count');
+				if(parseInt(count.val()) > 1) {
+					count.val(parseInt(count.val()) - 1);
+				} else {
+					return false;
+				}
+			}
+			function continueWithJoker() {
+				$('#joker').val(1);
+				$('#wx-landpage-form').submit();
+			}
+			function continueWithoutJoker() {
+				$('#joker').val(0);
+				$('#wx-landpage-form').submit();
+			}
+		</script>
+		
+		<f:if condition="{showJoker}">
+			<f:then><button class="fancybox button" href="#lottaryOverlay">In den Warenkorb</button></f:then>
+			<f:else><button class="button" href="javascript:alert('test);">In den Warenkorb</button></f:else>
+		</f:if>
+	</f:form>
+</f:section>

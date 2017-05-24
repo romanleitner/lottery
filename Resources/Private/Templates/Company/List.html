@@ -1,0 +1,125 @@
+<f:layout name="Default" />
+
+<f:section name="main">
+	<div id="flash-messages" style="position: fixed; background-color: lightblue; border: 1px solid gray; border-radius: 5px;">
+		<f:flashMessages />
+	</div>
+	
+	<span style="float: right;">next company: {nextCompany.name}</span>
+	<h2>Company Manager</h2>
+	<table>
+		<tr>
+			<th>Company</th>
+			<th>Sender (mail)</th>
+			<th>Sender (name)</th>
+			<th>Admin email</th>
+			<th>Weight (%)</th>
+			<th>Redirect to PID</th>
+			<th colspan="2"></th>
+			
+		</tr>
+		
+		<f:for each="{companies}" as="company">
+			<tr>
+				<f:form action="update" enctype="multipart/form-data" name="company" object="{company}">
+					<td><f:form.textfield property="name" /></td>
+					<td><f:form.textfield property="emailSender" /></td>
+					<td><f:form.textfield property="emailName" /></td>
+					<td><f:form.textfield property="emailAdmin" /></td>
+					<td><f:form.textfield property="weight" additionalAttributes="{class: 'js-weight', size: '10'}" /></td>
+					<td><f:form.textfield property="redirectPage" /></td>
+					<td><f:form.submit value="Update" class="js-update" /></td>
+					<td><f:link.action action="delete" arguments="{company : company}" class="js-delete">Delete</f:link.action></td>
+				</f:form>
+			</tr>
+		</f:for>
+		
+		<tr><td colspan="" class="js-show-create-form" style="cursor: pointer;">Add Company</td></tr>
+		
+		<tr id="create-company-form" style="display: none;">
+			<f:form action="create" name="newCompany" object="{newCompany}">
+				<td><f:form.textfield property="name" /></td>
+				<td><f:form.textfield property="emailSender" /></td>
+				<td><f:form.textfield property="emailName" /></td>
+				<td><f:form.textfield property="emailAdmin" /></td>
+				<td><f:form.textfield property="weight" class="js-weight" additionalAttributes="{size: '10'}" /></td>
+				<td><f:form.textfield property="redirectPage" /></td>
+				<td colspan="2"><f:form.submit value="Add Company" /></td>
+			</f:form>
+		</tr>
+	</table>
+	<h2>Sales Report</h2>
+	<f:for each="{reports}" key="year" as="report">
+		<table style="width: 90%; margin: 0px auto 0px auto; border-top: 1px solid gray; border-bottom: 1px solid gray;">
+			<tr>
+				<th style="text-align: left;" colspan="4">
+					{year}. Lotterie,&nbsp;
+					<span style="font-weight: normal;">
+						<f:for each="{totalOrders}" key="totalYear" as="totalValue">
+							<f:if condition="{year} == {totalYear}">
+								<f:then>{totalValue}</f:then>
+							</f:if>
+						</f:for>
+				Bestellungen,&nbsp;sales in </span>&euro;</th>
+			</tr>
+			<tr>
+				<th style="width: 25%; text-align: left;">Company</th>
+				<th style="width: 15%; text-align: left;">Bestellungen</th>
+				<th style="width: 15%; text-align: left;">Zwischensumme</th>
+				<th style="width: 15%; text-align: left;">%</th>
+				<th style="width: 15%; text-align: left;">Gesamtsumme</th>
+				<th style="width: 15%; text-align: left;">%</th>
+			</tr>
+			<f:for each="{report}" key="company" as="data">
+				<tr>
+					<td>{company}</td>
+					<td>{data.counter}</td>
+					<td><f:format.currency currencySign="€" decimalSeparator="," thousandsSeparator="." prependCurrency="true" decimals="0">{data.basket}</f:format.currency>,-</td>
+					<td><f:format.number decimals="3" decimalSeparator="," thousandsSeparator=".">{data.basketPercentage}</f:format.number>&nbsp;%</td>
+					<td><f:format.currency currencySign="€" decimalSeparator="," thousandsSeparator="." prependCurrency="true" decimals="0">{data.grand}</f:format.currency>,-</td>
+					<td><f:format.number decimals="3" decimalSeparator="," thousandsSeparator=".">{data.grandPercentage}</f:format.number>&nbsp;%</td>
+				</tr>
+			</f:for>
+		</table>
+	</f:for>
+	<h2>Delete Order</h2>
+	<p>Insert order ID to be deleted</p>
+	<f:form action="deleteOrder">
+		<f:form.textfield name="orderId" value="" />
+		<f:form.submit value="Delete" />
+	</f:form>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script>
+		$(function(){
+			$('.js-show-create-form').click(function(){
+				$('#create-company-form').show();
+				$(this).hide();
+			});
+
+			$('.js-delete').click(function(){
+				return confirm('Are you sure?');
+			});
+			
+			$('.js-update').click(function(){
+				var total = 0;
+				$('.js-weight').each(function(){
+					var value = parseInt(this.value, 10);
+					if(!isNaN(value)) {
+						total += value;
+					}
+				});
+				
+				if(total == 100) {
+					return true;
+				} else {
+					alert('Sum of weights is ' + total + '%, but it should be 100%, please fix it!');
+				}
+			});
+			setTimeout(function(){
+				$('#flash-messages').hide('slow');
+			}, 5000);
+			
+		});
+	</script>
+</f:section>

@@ -1,0 +1,31 @@
+<div class="item ym-clearfix">
+	<f:render partial="Checkout/Label" arguments="{propertyName:'dGender',propertyKey:'gender'}" />
+	<f:form.select options="{genderOptions}" property="dGender" disabled="disabled" />
+</div>
+<div class="item two ym-clearfix">
+	<div class="labels">
+		<f:render partial="Checkout/Label" arguments="{propertyName:'dFirstName',propertyKey:'first_name'}" />
+   	<f:render partial="Checkout/Label" arguments="{propertyName:'dLastName',propertyKey:'last_name',required:1}" />
+  </div>
+	<f:form.textfield property="dFirstName" disabled="disabled" />
+	<f:form.textfield property="dLastName" disabled="disabled" />
+</div>
+<div class="item ym-clearfix">
+	<f:render partial="Checkout/Label" arguments="{propertyName:'dAddress',propertyKey:'address',required:1}" />
+	<f:form.textfield property="dAddress" class="full" disabled="disabled" />
+</div>
+<div class="item two ym-clearfix">
+	<div class="labels">
+		<f:render partial="Checkout/Label" arguments="{propertyName:'dZip',propertyKey:'zip'}" />
+  	<f:render partial="Checkout/Label" arguments="{propertyName:'dCity',propertyKey:'city',required:1}" />
+  </div>
+	<f:form.textfield property="dZip" disabled="disabled" /><f:form.textfield property="dCity" disabled="disabled" />
+</div>
+<div class="item ym-clearfix">
+	<f:render partial="Checkout/Label" arguments="{propertyName:'dCountry',propertyKey:'country',required:1}" />
+	<f:form.select options="{countryOptions}" property="dCountry" disabled="disabled" />
+</div>
+<div class="item ym-clearfix">
+	<f:render partial="Checkout/Label" arguments="{propertyName:'dEmail',propertyKey:'email',required:1}" />
+	<f:form.textfield property="dEmail" class="full" disabled="disabled" />
+</div>

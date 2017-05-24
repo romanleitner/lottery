@@ -1,0 +1,106 @@
+<f:layout name="Default" />
+
+This template displays a NEW form for the current domain object.
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+  Resources:
+    Private:
+      Templates:
+        New.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="main">
+<div class="checkout_container">
+	<f:if condition="{basketEmpty} == 1">
+		<f:then>
+			<h1>
+				<f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:heading.cart" />
+			</h1>
+			<p>
+				<f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:cart.empty" />.
+			</p>
+		</f:then>
+		<f:else>
+			<div class="steps ym-clearfix">
+				<div class="step1 active">
+					<f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:checkout.heading_step1" />
+				</div>
+				<div class="step2">
+					<f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:checkout.heading_step2" />
+				</div>
+				<div class="step3">
+					<f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:checkout.heading_step3" />
+				</div>
+			</div>
+         <f:if condition="{encryptionFileError} == 1">
+            
+            <f:then>
+               <p class="error"><f:translate key="tx_wxlottery_domain_model_checkout.encryption_file_missing" /></p>
+            </f:then>
+            
+            <f:else>
+      			<f:form action="create" enctype="multipart/form-data" name="newCheckout" object="{newCheckout}">
+      				<div class="billing">
+                     <p class="error"><f:render partial="FormErrors" /></p>
+      					<h2>
+      						<f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:checkout.billing" />
+      					</h2>
+      					<f:render partial="Checkout/Billing" arguments="{checkout:newCheckout,genderOptions:genderOptions,countryOptions:countryOptions,langId:langId}" />
+      				</div>
+      				<div class="shipping">
+      					<div class="show_shipping ym-clearfix">
+      						<span class="small">
+      							<span class="required">*</span>&nbsp;<f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:checkout.required" />
+      						</span>
+      						
+      						<f:comment>
+      							<!-- KEEPING THIS IF THEY CHANGE THEIR MIND - COMMENTED OUT 19.3.2014 - Maros -->
+	      						<span class="link">
+  	    							<a href="#" id="showShipping">
+    	  								<f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:checkout.shipping_option" />
+      								</a>
+      							</span>
+      						</f:comment>
+      						
+      					</div>
+      				</div>
+      				
+      				<f:comment>
+      					<!-- KEEPING THIS IF THEY CHANGE THEIR MIND - COMMENTED OUT 19.3.2014 - Maros -->
+                <div class="billing" id="shipping">
+                  <h2>
+          					<f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:checkout.shipping" />
+          				</h2>
+          				<f:render partial="Checkout/Shipping" arguments="{checkout:newCheckout,genderOptions:genderOptions,countryOptions:countryOptions}" />
+                </div>
+              </f:comment>
+              
+      				<div class="submit">
+      					<f:form.submit value="{f:translate(key:'LLL:fileadmin/klassenlos.at/language/locallang.xml:checkout.address_submit')} »" />
+      				</div>
+      			</f:form>
+            </f:else>
+            
+         </f:if>                           
+		</f:else>
+	</f:if>
+</div>
+<div class="checkout_widget">
+	<div class="guarantee ym-clearfix">
+		<f:link.page pageUid="22">
+			<img src="<f:cObject typoscriptObjectPath="lib.moneyBackGuaranteeIcon" />" alt="<f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:header.icon_euro_label" />" />
+			<p>
+				<f:format.nl2br>
+					<f:translate key="LLL:fileadmin/klassenlos.at/language/locallang.xml:header.icon_euro_text" />
+				</f:format.nl2br>
+			</p>
+		</f:link.page>
+	</div>
+	<div class="icons">
+		<f:image src="fileadmin/klassenlos.at/images/common/checkout_widget_icon.png" alt="" />
+		<f:image src="fileadmin/klassenlos.at/images/common/ssl-icon-widget.png" alt="" />
+	</div>
+</div>
+</f:section>

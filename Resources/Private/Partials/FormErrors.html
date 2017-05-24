@@ -1,0 +1,16 @@
+<f:form.validationResults for="{object}">
+	<f:if condition="{validationResults.flattenedErrors}">
+      <f:translate key="tx_wxlottery_domain_model_basketitem.validation_error_newCheckout.error" />
+      <f:comment>
+    		<ul class="error">
+    			<f:for each="{validationResults.flattenedErrors}" key="propertyPath" as="errors">
+    				<li>
+    					<f:for each="{errors}" as="error">
+    						<f:translate key="tx_wxlottery_domain_model_basketitem.validation_error_{propertyPath}" /><br />
+    					</f:for>
+    				</li>
+    			</f:for>
+    		</ul>
+      </f:comment>
+	</f:if>
+</f:form.validationResults>
